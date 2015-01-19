@@ -986,6 +986,9 @@ header#site-header {
 				background-blend-mode: normal; 
 			  	opacity: 1;
 			}
+			span {
+				background: $color-1;
+			}
 		}
 	}
 }
@@ -1132,7 +1135,7 @@ header#site-header {
 					font-size: 20px;
 					text-decoration: none;
 					display: inline-block;
-					margin-left: 13px;
+					margin-left: 5px;
 					padding: 0 5px;
 					i {
 						@include transition(color .2s ease);
