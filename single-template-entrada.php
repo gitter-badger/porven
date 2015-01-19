@@ -33,7 +33,7 @@
 				<?php } ?>
 
 				</div>
-				<div class="clear">
+				<div class="clear metadata-entrada">
 					<div id="metadata">
 						<?php if(get_field('mostrar_autor')) { ?><div class="left avatar-author"><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?></div><?php } ?>
 						<div class="time-post left">

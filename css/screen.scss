@@ -688,12 +688,9 @@ header#site-header {
 			}
 		}
     }
-    &.only-date {
-    	margin-bottom: 0;
-    	.time-post {
-    		width: 100%;
-    	}
-    }
+}
+.metadata-entrada {
+	border-bottom: 1px solid $box-border;
 }
 
 // Multimedia 
@@ -1174,19 +1171,14 @@ header#site-header {
 		}
 	}
 }
-#sharelines.post-list {
-	li {
-		&:first-child {
-			border-top: 1px solid #d9d9d9;
-		}
-	}
-}
 #fuente {
 	> span {
 		display: block;
 	}
 	> ul {
 		> li , > div {
+			border-bottom: none;
+			border-top: 1px solid #d9d9d9;
 			padding: 10px 15px 10px 84px;
 			p {
 				margin-top: 3px;
@@ -1198,23 +1190,30 @@ header#site-header {
 	}
 }
 #interaccion {
-	li {
-	    @include at-breakpoint($tablet-v) {
-			padding-right: 0;
-	    }
-	}
-	span {
+	margin-bottom: 20px;
+    @include at-breakpoint($tablet-v) {
+		margin-bottom: 55px;
+    }
+	> span {
 		margin-top: 25px;
 	}
-	.comments-share {
-		margin-top: 9px;
-		span {
-			display: inline-block;
-			margin-top: 0;
-			margin-left: 5px;
-			position: relative;
-			top: -3px;
-		}
+	> ul {
+		> li , > div {
+			border-top: 1px solid #d9d9d9;
+		    @include at-breakpoint($tablet-v) {
+				padding-right: 0;
+		    }
+			.comments-share {
+				margin-top: 9px;
+				span {
+					display: inline-block;
+					margin-top: 0;
+					margin-left: 5px;
+					position: relative;
+					top: -3px;
+				}
+			}
+		}	
 	}
 }
 
@@ -1568,13 +1567,18 @@ header#site-header {
 	background: #fff;
 	width: 100%;
 	padding: 0;
+	overflow: visible;
 	header {
+		@include border-radius(2px 2px 0 0);
 		background: $color-1;
 		color: #fff;
-		padding: 15px 10px 15px 16px;
 		width: 100%;
+		padding: 15px 15px;
+		@include bleed(1px);
+		margin-top: -1px;
 		h3 {
 			margin-right: 30px;
+			margin: 0 30px 0 16px;
 			line-height: 120%;
 			font-family: $fira;
 			font-style: italic;
@@ -1586,6 +1590,7 @@ header#site-header {
 			text-decoration: none;
 			font-size: 11px;
 			padding: 5px;
+			margin-right: 10px;
 			position: relative;
 			top: 1px;
 		}
@@ -1597,6 +1602,7 @@ header#site-header {
 		text-align: left;
 		line-height: 150%;
 		margin-top: 10px;
+		overflow: hidden;
 
 		time {
 			display: block;
@@ -1637,9 +1643,9 @@ header#site-header {
 
 #comments {
 	text-align: center;
-	margin: 20px auto 20px auto;
+	margin: 0 auto 20px auto;
     @include at-breakpoint($tablet-v) {
-		margin: 55px auto 45px auto;
+		margin: 0 auto 45px auto;
     } 
 }
 
