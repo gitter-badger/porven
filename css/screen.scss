@@ -171,8 +171,14 @@ strong, b {
 	}
 }
 
-.card .hr-bar {
-	margin: 0.5em 0;
+.divider {
+	border: none;
+	border-top: 1px solid $box-border;
+	margin: 0;
+}
+
+.card .divider {
+	margin: 15px 0 10px 0;
 }
 
 .hidden-mobile {
@@ -1133,7 +1139,8 @@ header#site-header {
 					font-size: 20px;
 					text-decoration: none;
 					display: inline-block;
-					margin-left: 18px;
+					margin-left: 13px;
+					padding: 0 5px;
 					i {
 						@include transition(color .2s ease);
 					}
@@ -1434,12 +1441,9 @@ header#site-header {
 	.card_content {
 		text-align: center;
 		margin-top: 25px;
-
-		p {
-			line-height: 140%;
-			color: $color-text;
-			font-size: 16px;
-		}
+		line-height: 140%;
+		color: $color-text;
+		font-size: 16px;
 	}
 }
 
@@ -1545,17 +1549,11 @@ header#site-header {
 
 	.card_content {
 		text-align: left;
-		font-size: 17px;
-		line-height: 150%;
 		padding: 10px 10px 5px;
-		color: $color-text-alt;
 		margin-top: 0px;
-
 		p {
 			margin-bottom: 15px;
-
 		}
-
 		p:last-child {
 			margin-bottom: 0;
 		}
