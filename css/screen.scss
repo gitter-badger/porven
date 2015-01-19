@@ -134,8 +134,8 @@ body {
 .page {
     @include at-breakpoint($tablet-v) { 
 		background: #fff;
-		border-left: 1px solid $box-border;
-		border-right: 1px solid $box-border;
+		border-left: 1px solid $box-border2;
+		border-right: 1px solid $box-border2;
 		@include box-shadow(0 0 10px rgba(0,0,0,.1));
     } 
 }
@@ -256,41 +256,34 @@ header#site-header {
 		text-decoration: none;
 		overflow: hidden;
 		padding: 20px 0 19px 0;
-    	@include at-breakpoint($mobile-h) {
-			padding-right: 82px;
-		}
 	    @include at-breakpoint($tablet-v) { 
 			padding-left: 20px !important;
 			@include bleed($gutter-width/1.5,left);
-			background: $color-1 url(../images/bg-header.png) no-repeat right top;
+			//background: $color-1 url(../images/bg-header.png) no-repeat right top;
 			padding-right: 105px;
 	    }
 		svg {
 			width: 140px;
 			height: 19px;
-	    	@include at-breakpoint($mobile-h) {
-				margin-bottom: 10px;
-			}
 	    	@include at-breakpoint($tablet-v) {
+				margin-bottom: 10px;
 				width: 285px;
 				height: 38px;
 			}
 			path {
   				fill: $color-1;
-		    	@include at-breakpoint($tablet-v) {
+		    	/*@include at-breakpoint($tablet-v) {
   					fill: #fff;
-				}
+				}*/
 			}
 		}
 		time {
-			color: $color-text;
+			color: $color-text-alt;
 			font-size: 11px;
 			display: none;
-	    	@include at-breakpoint($mobile-h) {
-	    		display: block;
-			}
 	    	@include at-breakpoint($tablet-v) {
-				color: #fff;
+	    		display: block;
+				//color: #fff;
 			}
 			span {
 				display: inline-block;
@@ -303,9 +296,6 @@ header#site-header {
 	}
 	ul {
 		font-size: 24px;
-    	@include at-breakpoint($mobile-h) {
-			height: 50px;
-		}
 		@include at-breakpoint($tablet-v) {
 			height: 70px;
 			font-size: 30px;
@@ -382,7 +372,7 @@ header#site-header {
 	}
 	#site-options {
 		margin-top: 15px;
-		@include at-breakpoint($mobile-h) {
+		@include at-breakpoint($tablet-v) {
 			margin-top: 25px;
 		}
 		a {
@@ -1102,9 +1092,12 @@ header#site-header {
 		> li, > div {
 			border-bottom: 1px solid #d9d9d9;
 			color: #1f1f1f;
-			padding: 10px 15px 10px $gutter-width;
+			padding: 10px $gutter-width 10px $gutter-width;
 			@include at-breakpoint($mobile-h) {
-				padding: 10px 15px 10px 84px;
+				padding: 10px $gutter-width 10px 84px;
+			}
+			@include at-breakpoint($tablet-v) {
+				padding: 10px 0px 10px 84px;
 			}
 			@include pie-clearfix;
 			p {
@@ -1186,7 +1179,9 @@ header#site-header {
 		> li , > div {
 			border-bottom: none;
 			border-top: 1px solid #d9d9d9;
-			padding: 10px 15px 10px 84px;
+		    @include at-breakpoint($tablet-v) {
+				padding: 10px 0px 10px 84px;
+		    }
 			p {
 				margin-top: 3px;
 			    @include at-breakpoint($tablet-v) {
@@ -1441,7 +1436,7 @@ header#site-header {
 	.card_content {
 		text-align: center;
 		margin-top: 25px;
-		line-height: 140%;
+		line-height: 150%;
 		color: $color-text;
 		font-size: 16px;
 	}
