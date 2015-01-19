@@ -58,10 +58,11 @@
 						echo '<div id="sharelines" class="post-list"><span>Sharelines</span><ul>';
 						while ( have_rows('sharelines') ) : the_row();
 							echo '<li><p>';
-							the_sub_field('shareline');
+							$the_sub_field = get_sub_field('shareline');
+							echo $the_sub_field;
 							echo '</p><div class="right">
-								<a href="https://www.facebook.com/dialog/share?app_id=1479463332330420&display=page&href=<?php the_permalink() ?>&redirect_uri=<?php the_permalink() ?>"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="#"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.$the_sub_field.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.$the_sub_field.'&url='.get_the_permalink().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
@@ -79,16 +80,18 @@
 					        $term = get_term( get_sub_field('dato'), 'datos');
 					        $subterm_adaptacion = get_sub_field('adaptacion');
 					        if(!empty($subterm_adaptacion)) {
-					        	echo $subterm_adaptacion;
+					        	$dato_print = $subterm_adaptacion;
 					        } elseif( $term->name == 'Otro' ) {
-					        	echo get_sub_field('otro');
+					        	$dato_print = get_sub_field('otro');
 					        } else {
-					        	echo $term->name;
+					        	$dato_print = $term->name;
 					    	}
 
+					    	echo $dato_print;
+
 					    	echo '</span></p><div class="right">
-								<a target="_blank" href="https://www.facebook.com/dialog/share?app_id=1479463332330420&display=popup&href=http://google.com&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="icon-facebook" title="Facebook"></i></a>
-								<a target="_blank" href="https://twitter.com/share?text=<?php the_title() ?>&via=diarioporven&url=<?php the_permalink() ?>"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_the_permalink().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
