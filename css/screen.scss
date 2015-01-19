@@ -1,0 +1,2232 @@
+@import "base";
+
+//Structure 
+
+$total-columns : 4; // a 12-column grid 
+$column-width : 5.23rem; // each column is 4em wide 
+$gutter-width : 1rem; // 1em gutters between columns 
+$grid-padding : $gutter-width; // grid-padding equal to gutters 
+
+//alternative layout breakpoints 
+$mobile-h: 480px 6;
+
+//alternative layout breakpoints 
+$tablet-v: 768px 8;
+
+//alternative layout breakpoints 
+$tablet-h: 1024px 10;
+
+//alternative layout breakpoints 
+$computer: 1200px 12;
+
+@include border-box-sizing;
+
+// Webfonts
+
+@font-face {
+  font-family: 'porven';
+  src: url('fonts/fontello/porven.eot?11080579');
+  src: url('fonts/fontello/porven.eot?11080579#iefix') format('embedded-opentype'),
+       url('fonts/fontello/porven.woff?11080579') format('woff'),
+       url('fonts/fontello/porven.ttf?11080579') format('truetype'),
+       url('fonts/fontello/porven.svg?11080579#porven') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'porven';
+    src: url('../font/porven.svg?11080579#porven') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "porven";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+}
+
+.icon-facebook:before { content: '\e800'; } /* '' */
+.icon-twitter:before { content: '\e801'; } /* '' */
+.icon-gplus:before { content: '\e802'; } /* '' */
+.icon-youtube:before { content: '\e803'; } /* '' */
+.icon-mail-alt:before { content: '\e804'; } /* '' */
+.icon-rss:before { content: '\e805'; } /* '' */
+.icon-search:before { content: '\e806'; } /* '' */
+.icon-menu:before { content: '\e807'; } /* '' */
+.icon-location:before { content: '\e808'; } /* '' */
+.icon-share:before { content: '\e809'; } /* '' */
+.icon-chat:before { content: '\e80a'; } /* '' */
+.icon-link:before { content: '\e80b'; } /* '' */
+.icon-facebook-squared:before { content: '\e80c'; } /* '' */
+.icon-play:before { content: '\e80d'; } /* '' */
+.icon-logo-whatsapp:before { content: '\e80e'; } /* '' */
+
+// Colores
+
+$color-1: #cc0a0a;
+
+$color-2: #042260;
+
+$color-text: #1f1f1f;
+$color-text-alt: #666;
+
+$color-text-aside: #333333;
+
+$box-border: #d9d9d9;
+$box-border2: #e6e6e6;
+
+$box-bg: #fafafa;
+
+
+// Fuentes
+
+$fira: 'Fira Sans', Helvetica, Arial, sans-serif;
+$lora: 'Fira Sans', Helvetica, Arial, sans-serif;
+$league: 'Fira Sans', Helvetica, Arial, sans-serif;
+$font-text: 'Asap', sans-serif;
+
+html, body{ overflow-x:hidden !important; }
+
+body {
+	color: #404040;
+	font-family: $font-text;
+	background: #fff;
+    @include at-breakpoint($tablet-v) { 
+		background: #fafafa;
+    } 
+}
+.longform .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    @include at-breakpoint($tablet-h) { 
+        @include container;
+    } 
+    @include at-breakpoint($computer) { 
+        @include container;
+    } 
+}
+.container {
+    @include at-breakpoint($tablet-v) {
+        @include pie-clearfix;
+        @include container;
+       /* @include susy-grid-background;*/
+    }
+    @include at-breakpoint($tablet-h) { 
+        @include pie-clearfix;
+        @include container;
+       /*@include susy-grid-background;*/
+    } 
+    @include at-breakpoint($computer) { 
+        @include pie-clearfix;
+        @include container;
+       /* @include susy-grid-background;*/
+    }
+}
+
+.page {
+    @include at-breakpoint($tablet-v) { 
+		background: #fff;
+		border-left: 1px solid $box-border;
+		border-right: 1px solid $box-border;
+		@include box-shadow(0 0 10px rgba(0,0,0,.1));
+    } 
+}
+a {
+	text-decoration: none;
+	color: $color-1;
+}
+strong, b {
+	font-weight: bold;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	@include pie-clearfix;
+}
+
+.hr-bar {
+	border: none;
+	border-top: 1px solid $box-border;
+	margin: 0;
+	&.hr-bar-margin {
+		margin-bottom: 20px;
+	    @include at-breakpoint($tablet-v) {
+			margin-bottom: 40px;
+	    }
+	    @include at-breakpoint($tablet-h) {
+			margin-bottom: 70px;
+	    }
+	}
+}
+
+.card .hr-bar {
+	margin: 0.5em 0;
+}
+
+.hidden-mobile {
+	display: none;
+    @include at-breakpoint($tablet-v) { 
+    	display: block;
+    }
+}
+.hidden-tablet-v {
+	display: block;
+    @include at-breakpoint($tablet-v) { 
+    	display: none;
+    }
+    @include at-breakpoint($tablet-h) { 
+    	display: block;
+    }
+}
+.hidden-computer {
+	display: block;
+    @include at-breakpoint($tablet-v) { 
+    	display: none;
+    }
+}
+// Top
+
+#top {
+	font-size: 11px;
+	@include pie-clearfix;
+    @include at-breakpoint($tablet-h) { 
+		padding: 11px 0 9px;
+    }
+	nav {
+		text-align: right;
+		width: 49%;
+		float: right;
+		display: none;
+	    @include at-breakpoint($tablet-h) { 
+	    	display: block;
+	    }
+		ul {
+			display: inline;
+			li {
+				display: inline-block;
+				margin-right: 25px;
+				a {
+					color: $color-text-aside;
+					text-decoration: none;
+					&:hover {
+						color: $color-1;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Header
+
+header#site-header {
+	@include pie-clearfix;
+	background: #fff;
+	position: relative;
+	z-index: 9998;
+	border-bottom: 1px solid #e6e6e6;
+	padding: 0 $gutter-width;
+	@include box-shadow(0 0 10px rgba(0,0,0,.1));
+    @include at-breakpoint($tablet-v) { 
+		@include bleed($gutter-width/1.5);
+		border: 1px solid #e6e6e6;
+		height: 100px;
+		padding-right: 30px !important;
+    }
+	.site-logo {
+		float: left;
+		text-decoration: none;
+		overflow: hidden;
+		padding: 20px 0 19px 0;
+    	@include at-breakpoint($mobile-h) {
+			padding-right: 82px;
+		}
+	    @include at-breakpoint($tablet-v) { 
+			padding-left: 20px !important;
+			@include bleed($gutter-width/1.5,left);
+			background: $color-1 url(../images/bg-header.png) no-repeat right top;
+			padding-right: 105px;
+	    }
+		svg {
+			width: 140px;
+			height: 19px;
+	    	@include at-breakpoint($mobile-h) {
+				margin-bottom: 10px;
+			}
+	    	@include at-breakpoint($tablet-v) {
+				width: 285px;
+				height: 38px;
+			}
+			path {
+  				fill: $color-1;
+		    	@include at-breakpoint($tablet-v) {
+  					fill: #fff;
+				}
+			}
+		}
+		time {
+			color: $color-text;
+			font-size: 11px;
+			display: none;
+	    	@include at-breakpoint($mobile-h) {
+	    		display: block;
+			}
+	    	@include at-breakpoint($tablet-v) {
+				color: #fff;
+			}
+			span {
+				display: inline-block;
+				text-transform: lowercase;
+			}
+		}
+	}
+	ul, form {
+		float: right;
+	}
+	ul {
+		font-size: 24px;
+    	@include at-breakpoint($mobile-h) {
+			height: 50px;
+		}
+		@include at-breakpoint($tablet-v) {
+			height: 70px;
+			font-size: 30px;
+		}
+		li {
+			display: inline-block;
+			margin-left: 15px;
+			height: 30px;
+			margin-top: 3px;
+			@include at-breakpoint($tablet-v) {
+				margin-top: 10px;
+			}
+
+			a {
+				text-decoration: none;
+				color: $color-text-aside;
+				font-family: 'fontello';
+				i {
+					@include transition(color .2s ease);
+				}
+				&:hover {
+					i {
+						color: $color-1;
+					}
+				}
+			}
+		}
+	}
+
+	ul#social-profiles {
+		display: none;
+		margin-top: 25px;
+		@include at-breakpoint($tablet-h) {
+			display: block;	
+		}	
+	}
+	form {
+		margin-top: 25px;
+		display: none;
+		margin-left: 30px;
+		margin-right: 10px;
+		width: 260px;
+		position: relative;
+		@include at-breakpoint($tablet-h) {
+			display: block;
+		}
+		.input-search {
+			width: 100%;
+			height: 50px;
+			background: white url(../images/icon-search.png) 93% center no-repeat;
+			border: 1px solid $box-border;
+			box-sizing: border-box;
+			padding: 10px;	
+			color: $color-text-alt;
+			font-size: 11px;
+			@include transition(background .2s ease);
+			&:focus {
+				background-image: url(../images/icon-search-focus.png);
+			}
+		}
+		.input-submit-search {
+			background: transparent;
+			opacity: 0;
+			width: 15px;
+			height: 14px;
+			outline: none;
+			border: none;
+			position: absolute;
+			top: 18px;
+			right: 16px;
+			z-index: 9999;
+			cursor: pointer;
+		}
+	}
+	#site-options {
+		margin-top: 15px;
+		@include at-breakpoint($mobile-h) {
+			margin-top: 25px;
+		}
+		a {
+			i {
+				color: $color-1;
+				@include transition(color .2s ease);
+			}
+			&:hover {
+				i {
+					color: #800606;
+				}
+			}
+		}
+	}
+	.search-option {
+		@include at-breakpoint($tablet-h) {
+			display: none;
+		}
+	}
+}
+
+
+// Contenido
+
+.wrapper {
+	@include pie-clearfix;
+    @include at-breakpoint($tablet-v) {
+		padding: 0 20px;
+    }	
+    @include at-breakpoint($computer) {
+		padding: 0 40px;
+    }
+    &.longform {
+    	padding: 0;
+	    @include at-breakpoint($tablet-v) {
+			padding: 0;
+	    }	
+    }
+}
+
+#content {
+	@include pie-clearfix;
+	width: 100%;
+    @include at-breakpoint($tablet-v) {
+    }
+    @include at-breakpoint($tablet-h) {
+    	width: 65%;
+    	float: left;
+    }
+    @include at-breakpoint($computer) {
+    	@include span-columns(8,12);
+		padding-right: 0;
+    }		
+    &.full-content {
+    	float: none;
+	    @include at-breakpoint($tablet-v) {
+	    	width: 700px;
+	    	margin: 0 auto;
+	    }
+    }
+}
+
+#header-post {
+	padding: 20px 0 20px 0;
+	text-align: center;
+    @include at-breakpoint($tablet-v) {
+		padding: 30px 0 20px 0;
+    }
+    @include at-breakpoint($tablet-h) {
+		padding: 40px 0 25px 0;
+    }
+	h1 {
+		font-size: 28px;
+		color: $color-text;
+		font-family: $fira;
+		font-weight: 700;
+		padding: 0 $gutter-width 0 $gutter-width;
+		letter-spacing: -0.025em;
+		text-align: left;
+		line-height: 120%;
+	    @include at-breakpoint($tablet-v) {
+			line-height: 95%;
+			font-size: 44px;
+			border-bottom: 1px solid #d9d9d9;
+			padding: 0 0 30px 0;
+	    }
+	    @include at-breakpoint($tablet-h) {
+			padding: 0 60px 30px 60px;
+			font-size: 54px;
+			text-align: center;
+	    }
+	}
+	time {
+		color: $color-text-alt;
+		font-size: 11px;
+		display: block;
+		margin-bottom: 15px;
+		text-align: left;
+		margin-left: $gutter-width;
+	    @include at-breakpoint($tablet-v) {
+			margin-left: 0;
+	    }
+	    @include at-breakpoint($tablet-h) {
+			text-align: center;
+			margin-left: 0;
+	    }
+	}
+	.categorie-post a {
+		text-transform: uppercase;
+		font-size: 10px;
+		color: $color-text-alt;
+		letter-spacing: 0.20em;
+		border: 1px solid #d9d9d9;
+		padding: 5px 10px;
+		background: #fff;
+		position: relative;
+		top: -12px;
+		@include border-radius(2px);
+		@include transition(.5s ease);
+		display: none;
+	    @include at-breakpoint($tablet-v) {
+	    	display: inline-block;
+	    }
+	}
+	&.header-post-card {
+		padding: 40px 0 0 0;
+		h1 {
+			font-size: 26px;
+			padding-bottom: 0px;
+		    @include at-breakpoint($tablet-v) {
+				font-size: 48px;
+				padding-bottom: 45px;
+				line-height: 110%;
+		    }
+		    @include at-breakpoint($tablet-h) {
+				line-height: 95%;
+		    }
+		}
+	}
+	&.header-post-multimedia {
+		padding: 20px 0px 20px 0px;
+		background: $color-text;
+	    margin: 0;
+	    @include at-breakpoint($tablet-v) {
+	    	@include bleed($gutter-width*1.8);
+			padding: 40px 90px 45px 90px !important;
+	    	margin-top: 10px;
+	    	margin-bottom: 40px;
+	    }
+	    @include at-breakpoint($computer) {
+	    	@include bleed($gutter-width*3);
+			padding: 40px 90px 45px 90px !important;
+	    	margin-top: 10px;
+	    	margin-bottom: 40px;
+	    }
+	    #header-thumb {
+	    	margin-bottom: 10px;
+	    }
+		h1 {
+			text-align: center;
+			margin-bottom: 15px;
+			color: #fff;
+			font-size: 22px;
+			border-bottom: none;
+		    @include at-breakpoint($tablet-v) {
+				font-size: 36px;
+				padding-left: 0;
+				padding-right: 0;
+		    	margin-bottom: 0;
+		    }
+		    @include at-breakpoint($tablet-h) {
+				font-size: 48px;
+		    }
+		}
+		p {
+			text-align: center;
+			float: none;
+			color: $color-text-alt;
+			font-size: 11px;
+			display: block;
+			margin: 0 0 10px 0;
+		    @include at-breakpoint($tablet-v) {
+				margin: 15px 0 0 0;
+		    	float: right;
+		    	text-align: left;
+				display: inline-block;
+		    }
+			a {
+				color: $color-text-alt;
+			}
+		}
+	}
+	&.header-post-dossier {
+		background: $color-text url(images/bx_loader2.gif) center center no-repeat;
+	    margin: 10px 0 30px 0;
+		padding: 0 !important;
+	    @include bleed($gutter-width*2);
+	    @include at-breakpoint($computer) {
+	    	@include bleed($gutter-width*3);
+	    }
+	    .bg-gradient {
+			background-color: rgba(31,31,31,0);
+			@include filter-gradient(#1f1f1f, #1f1f1f, vertical); 
+			@include background-image(linear-gradient(top, rgba(31,31,31,0) 0%, rgba(31,31,31,0.95) 30%));
+			h1 {
+				padding: 0 60px 140px 60px;
+				position: relative;
+				top: 100px;
+				color: #fff;
+				font-size: 22px;
+				border-bottom: none;
+				margin: 0 20px;
+			    @include at-breakpoint($tablet-v) {
+			    	@include span-columns(10,12);
+					font-size: 48px;
+					margin: 0 auto;
+					float: none;
+					line-height: 110%;
+					padding-left: 0;
+					padding-right: 0;
+			    }
+			}
+	    }
+	    .img-grayscale {
+	    	height: 200px;
+		    @include at-breakpoint($tablet-v) {
+	    		height: 400px;
+		    }
+	    }
+	}
+}
+
+
+
+// Noticia
+
+#the-post {
+    @include at-breakpoint($tablet-v) { 
+    }
+    @include at-breakpoint($computer) { 
+		padding-right: 0;
+    }		
+}
+
+#the-content {
+	padding: 20px $gutter-width 0 $gutter-width;
+    @include at-breakpoint($tablet-v) { 
+		padding: 50px 60px;
+    }
+    @include at-breakpoint($computer) { 
+		padding: 50px 60px;
+    }		
+}
+#metadata { 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	height: 50px;
+	font-size: 11px;
+	color: $color-text-aside;
+	margin: 0 $gutter-width 0 $gutter-width;
+	@include pie-clearfix;
+    @include at-breakpoint($tablet-v) {
+		margin: 0;
+    	@include span-columns(4,8);
+    }
+    @include at-breakpoint($tablet-h) {
+    	@include span-columns(3,6);
+    }
+    @include at-breakpoint($computer) {
+    	@include span-columns(4,8);
+    }
+    .avatar-author img {
+    	width: 50px;
+    	height: 50px;
+    	@include border-radius(25px);
+    	margin-right: 10px;
+    }
+    .time-post {
+    	width: 70%;
+	    @include at-breakpoint($tablet-h) {
+    		width: 76%;
+	    }
+	    @include at-breakpoint($computer) {
+    		width: 80%;
+	    }
+	    time {
+			font-size: 11px;
+			color: $color-text-alt;
+			display: block;
+			line-height: 110%;
+			margin-bottom: 5px;
+	    }
+		span {
+			font-size: 11px;
+			color: $color-text-alt;
+			line-height: 110%;
+			display: block;
+			margin-bottom: 5px;
+			em {
+				font-style: italic;
+			}
+		}
+    }
+    &.only-date {
+    	margin-bottom: 0;
+    	.time-post {
+    		width: 100%;
+    	}
+    }
+}
+
+// Multimedia 
+
+.multimedia {
+	#the-content {
+	    @include at-breakpoint($computer) { 
+			padding: 30px 60px;
+	    }		
+	}
+	#interaccion {
+		> ul {
+			> li, > div {
+				border-top: 1px solid #d9d9d9;
+			}
+		}
+	}
+	#metadata {
+		border-bottom: 1px solid $box-border;
+		width: 100%;
+		margin: 0;
+		padding: 0 $gutter-width;
+	    @include at-breakpoint($tablet-v) {
+	    	@include reset-columns;
+			padding: 0;
+			position: relative;
+			top: -10px;
+	    }
+	}
+}
+
+// Dossier
+
+.dossier {
+	#the-content {
+	    @include at-breakpoint($tablet-h) {
+	    	padding: 50px 0;
+	    }
+	    @include at-breakpoint($computer) {
+	    	padding: 50px 60px;
+	    }
+	}
+	#interaccion {
+		margin-bottom: 40px;
+	}
+}
+
+// Header-thumb
+#header-thumb {
+	margin-bottom: 20px;
+	@include bleed(20px,20px);
+	div {
+		@include pie-clearfix;
+		background-color: #1f1f1f;
+		width: 100%;	
+		height: 200px;
+		margin-bottom: 10px;
+		@include at-breakpoint($tablet-v) {
+			height: 440px;
+		}
+	}
+	p {
+		color: $color-text-alt;
+		font-size: 11px;
+		border-bottom: 1px solid #d9d9d9;
+		padding-bottom: 8px;
+		padding-left: $gutter-width;
+	    @include at-breakpoint($tablet-v) {
+			padding-left: 0;
+	    }		
+	}
+	a {
+		display: inline-block;
+		color: $color-text-alt;
+		&:hover {
+			color: $color-1;
+		}
+	}
+	
+}
+
+
+
+#the-content {
+	font-family: $font-text;
+	font-size: 18px;
+	color: $color-text;
+	width: 100%;
+}
+
+/*Template Card*/
+
+.template-card {
+	width: 100%;
+    @include at-breakpoint($tablet-v) { 
+		width: 700px;
+    }
+	#the-content {
+	    @include at-breakpoint($tablet-v) { 
+			padding: 45px 40px 25px 40px;
+    	}
+		.post-content {
+			p {
+				margin-bottom: 10px;
+			}
+			.card {
+				margin-top: 35px;
+			}
+		}
+	}
+	#metadata {
+		margin: 0;
+		width: 48.97625%;
+		float: left;
+    	margin: 10px 0;
+    	padding-left: $gutter-width;
+	    @include at-breakpoint($tablet-v) { 
+			padding-left: 0;
+    	}
+	}
+    #social-share-card {
+    	float: right;
+    	margin: 10px 0;
+		@include pie-clearfix;
+    	padding-right: $gutter-width;
+	    @include at-breakpoint($tablet-v) { 
+			padding-right: 0;
+    	}
+		.social-share {
+			margin-top: 5px;
+			li {
+				margin-bottom: 0;
+			}
+		}
+    }
+} 
+
+.template-card #content {
+	margin: 0 auto;
+	float: none;
+	width: 100%;
+}
+
+
+// Post 	
+
+	#the-content .post-content {
+		>p {
+			margin-bottom: 20px;
+			line-height: 140%;
+			@include at-breakpoint($mobile-h) {
+				line-height: 150%;
+			}
+		}
+		.container >p {
+			margin-bottom: 20px;
+			line-height: 140%;
+			@include at-breakpoint($mobile-h) {
+				line-height: 150%;
+			}
+		}
+
+		>p:first-child:first-letter {
+			display: block;
+			float: left;
+			font-family: $fira;
+			font-size: 60px;
+			margin-top: 17px;
+			margin-right: 9px;
+			color: #1f1f1f;
+			font-weight: bold;
+		}
+
+		blockquote {
+			margin-bottom: 20px;
+			font-size: 36px;
+			line-height: 115%;
+			font-style: italic;
+			color: $color-1;
+			letter-spacing: -0.025em;
+		}
+
+		ul, ol {
+			margin-bottom: 30px;
+			padding-left: 21px;
+
+			li {
+				margin-bottom: 15px;
+				line-height: 130%;
+			}
+		}
+
+		ul li {
+			list-style-type: square;
+		}
+
+		ol li {
+			list-style-type: decimal;
+		}
+
+		a {
+			color: $color-1;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		em {
+			font-style: italic;
+		}
+	}
+
+// Custom Posts
+#custom-post-list {
+	@include pie-clearfix;
+	li {
+		margin-bottom: 10px;
+		@include pie-clearfix;
+		&:last-child {
+			margin-bottom: 30px;
+		}
+	}
+}
+.custom-post {
+	position: relative;
+	background: $color-text;
+	display: block;
+	@include span-columns(4,4);
+	@include at-breakpoint($computer) {
+	}
+	.custom-post-img {
+		opacity: 0.5;
+		@include filter(grayscale(100%)); 
+	  	filter: url(grayscale.svg);
+	  	filter: gray;
+	  	@include transition(all 1s ease);
+	}
+	.bg-gradient {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		padding: 10px 15px;
+		background-color: rgba(31,31,31,0);
+		@include filter-gradient(#1f1f1f, #1f1f1f, vertical); 
+		@include background-image(linear-gradient(top, rgba(31,31,31,0) 0%, rgba(31,31,31,0.95) 68%));
+	  	@include transition(all .6s ease);
+		span {
+			margin-bottom: 5px;
+			display: inline-block;
+			font-size: 11px;
+			background: rgba(31,31,31,.95);
+			padding: 3px 5px;
+			color: #fff;
+			@include border-radius(1px);
+			@include transition(all .6s ease);
+		}
+		h3 {
+			font-family: $fira;
+			font-weight: 500;
+			font-size: 16px;
+			color: #fff;
+			line-height: 110%;
+		}
+	}
+	&:hover {
+		.custom-post-img {
+			@include filter(none); 
+		  	opacity: 1;
+		}
+		.bg-gradient {
+			padding-bottom: 20px;
+			span {
+				background: $color-1;
+			}
+		}
+	}
+	&.filter-grayscale {
+		margin-bottom: 0;
+	}
+	&.custom-post-alert {
+		background: red;
+		.custom-post-img {
+			@include filter(none); 
+			background-blend-mode: luminosity;
+		}
+		.bg-gradient {
+			background-color: rgba(128,6,6,0);
+			@include filter-gradient(#800606, #800606, vertical);
+			@include background-image(linear-gradient(top, rgba(128,6,6,0) 0%, rgba(128,6,6,0.95) 68%));
+			span {
+				background: #800606;
+			}
+		}
+		&:hover {
+			.custom-post-img {
+				background-blend-mode: normal; 
+			  	opacity: 1;
+			}
+		}
+	}
+}
+
+// filter-grayscale 
+
+.filter-grayscale {
+	position: relative;
+	background: $color-text;
+	margin-bottom: 10px;
+	display: block;
+	.img-grayscale {
+		opacity: 0.5;
+		@include filter(grayscale(100%)); 
+	  	filter: url(grayscale.svg);
+	  	filter: gray;
+	}
+	.bg-gradient {
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		background-color: rgba(31,31,31,0);
+		@include filter-gradient(#1f1f1f, #1f1f1f, vertical); 
+		@include background-image(linear-gradient(top, rgba(31,31,31,0) 0%, rgba(31,31,31,0.95) 68%));
+	}
+}
+
+// Related Posts
+
+#related-posts {
+	background: #fafafa;
+	padding: 20px 20px 0 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	border-bottom: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	@include at-breakpoint($tablet-v) {
+		margin-bottom: 45px;
+	}
+	@include pie-clearfix;
+	li {
+		@include at-breakpoint($mobile-h) {
+			@include span-columns(3,6);
+		}
+		&:nth-child(2n) {
+			@include at-breakpoint($mobile-h) {
+				@include span-columns(3 omega,6);
+			}
+		}
+		@include at-breakpoint($tablet-v) {
+			@include span-columns(4,8);
+		}
+		&:nth-child(2n) {
+			@include at-breakpoint($tablet-v) {
+				@include span-columns(4 omega,8);
+			}
+		}
+	}
+}
+
+.box-post {
+	margin-bottom: 35px;
+	display: block;
+	span {
+		font-size: 11px;
+		color: $color-text-alt;
+		margin-bottom: 5px;
+		display: block;
+	}
+	h3 {
+		font-size: 18px;
+		font-family: $fira;
+		color: $color-text;
+		font-weight: 500;
+		line-height: 110%;
+		letter-spacing: -0.015em;
+		@include transition(color .2s ease)
+	}
+	&:hover {
+		h5 {
+			color: $color-1;
+		}
+	}
+}
+
+// Post List
+.post-list {
+	> span {
+		display: none;
+		font-size: 11px;
+		color: $color-text-alt;
+		float: left;
+		margin: 17px 10px 0 $gutter-width;
+		width: 8%;
+		@include at-breakpoint($mobile-h) {
+			display: block;
+			margin: 17px 15px 0 $gutter-width;
+		}
+		@include at-breakpoint($tablet-v) {
+			margin: 17px 25px 0 0;
+		}
+	}
+	> ul {
+		> li, > div {
+			border-bottom: 1px solid #d9d9d9;
+			color: #1f1f1f;
+			padding: 10px 15px 10px $gutter-width;
+			@include at-breakpoint($mobile-h) {
+				padding: 10px 15px 10px 84px;
+			}
+			@include pie-clearfix;
+			p {
+				float: left;
+				line-height: 120%;
+				font-size: 14px;
+				width: 75%;
+				@include at-breakpoint($mobile-h) {
+					width: 75%;
+				}
+				@include at-breakpoint($tablet-v) {
+					line-height: 150%;
+					font-size: 16px;
+					width: 85%;
+				}
+				span { display: block; float: left; }
+				span:first-letter {
+					text-transform: lowercase;
+					} 
+			}
+			strong {
+				font-weight: bold;
+				font-style: italic;
+				float: left;
+				display: inline-block;
+				margin-right: 5px;
+			}
+			> .right {
+				margin-top: 2px;
+				> a {
+					color: #d9d9d9;
+					font-size: 20px;
+					text-decoration: none;
+					display: inline-block;
+					margin-left: 18px;
+					i {
+						@include transition(color .2s ease);
+					}
+					&:hover {
+						.icon-facebook {
+							color: #2f4587;
+						}
+						.icon-twitter {
+							color: #4ba3eb;
+						}
+						.icon-link {
+							color: $color-1;
+						}
+					}
+				}
+
+			}
+			.comments-share {
+				float: left;
+				width: 17%;
+			    @include at-breakpoint($computer) {
+					width: 10%;
+			    }
+				i {
+					font-size: 24px;
+					color: #d9d9d9;
+				}
+				span {
+					font-family: $fira;
+					font-style: italic;
+					font-weight: bold;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}
+#sharelines.post-list {
+	li {
+		&:first-child {
+			border-top: 1px solid #d9d9d9;
+		}
+	}
+}
+#fuente {
+	> span {
+		display: block;
+	}
+	> ul {
+		> li , > div {
+			padding: 10px 15px 10px 84px;
+			p {
+				margin-top: 3px;
+			    @include at-breakpoint($tablet-v) {
+					margin-top: 0;
+			    }
+			}
+		}
+	}
+}
+#interaccion {
+	li {
+	    @include at-breakpoint($tablet-v) {
+			padding-right: 0;
+	    }
+	}
+	span {
+		margin-top: 25px;
+	}
+	.comments-share {
+		margin-top: 9px;
+		span {
+			display: inline-block;
+			margin-top: 0;
+			margin-left: 5px;
+			position: relative;
+			top: -3px;
+		}
+	}
+}
+
+// Share
+
+
+#social-share-multimedia {
+	width: 100%;
+	padding: 0 $gutter-width 0 $gutter-width;
+    @include at-breakpoint($mobile-h) {
+    	margin: 0 auto;
+    }
+    @include at-breakpoint($tablet-v) {
+    	float: left;
+    	width: inherit;
+    	padding: 0;
+    }
+    .social-share {
+    	float: none;
+		@include at-breakpoint($tablet-v) {
+			float: right;
+			width: inherit;								
+		}   
+	}
+}
+
+
+#social-share-top, #social-share-longform, #social-share-card {
+	@include pie-clearfix;
+	margin: 0 $gutter-width 20px $gutter-width;
+    @include at-breakpoint($tablet-v) {
+    	margin-left: 0;
+    	margin-right: 0;
+    }
+    .social-share {
+    	float: none;
+		@include at-breakpoint($tablet-v) {
+			margin-top: 5px;
+			float: right;									
+		}   
+	}
+}
+#social-share-longform {
+	@include pie-clearfix;
+	margin-bottom: 20px;
+    @include at-breakpoint($tablet-v) {
+		margin-bottom: 10px;
+    }
+}
+#social-share-top {
+	margin-top: 15px;
+    @include at-breakpoint($tablet-v) {
+    	margin: 0 0 20px 0;
+    }
+}
+#social-share-bottom, #social-share-card {
+	margin-bottom: 0px;
+	.social-share {
+		width: 150px;
+		@include at-breakpoint($tablet-v) {
+			width: auto;							
+		}
+		li {
+			margin-bottom: 0;
+			width: 50px;
+			@include at-breakpoint($tablet-v) {
+				width: auto;							
+			}
+			a {
+				width: 100%;
+				@include at-breakpoint($tablet-v) {
+					width: 50px;							
+				}
+				&.share-facebook, &.share-twitter {
+					@include at-breakpoint($computer) {
+						width: 120px;								
+					}
+					i {
+						@include at-breakpoint($computer) {
+							margin-right: 20px;							
+						}
+					}
+				}
+			}
+			.share-gplus, .share-mail { 
+				display: none;
+				@include at-breakpoint($tablet-v) {
+					display: block;								
+				}
+			}
+			.share-whatsapp {
+				@include border-radius(0 2px 2px 0);
+				@include at-breakpoint($tablet-v) {
+					@include border-radius(0);				
+				}
+			}
+		}
+	}
+}
+.social-share {
+	float: right;
+	width: 100%;
+	@include at-breakpoint($mobile-h) {	
+		width: auto;		
+	}
+	@include pie-clearfix;
+	li {
+		float: left;
+		width: 20%;
+		@include at-breakpoint($mobile-h) {	
+			width: auto;		
+		}
+		a {
+			display: block;
+			text-align: center;
+			height: 40px;
+			float: left;
+			width: 100%;
+			padding: 7px 0 10px 0;			
+			text-decoration: none;
+			overflow: hidden;
+			color: #fff;
+			font-family: $fira;
+			font-size: 12px;
+			cursor: pointer;
+			@include transition(background .2s ease);
+			@include at-breakpoint($mobile-h) {	
+				width: 50px;		
+			}
+			&:hover {
+				background: $box-bg;
+			}
+			i {
+				color: #fff;
+				font-size: 20px;				
+				display: block;
+				text-align: center;
+				position: relative;
+				top: 3px;
+				@include at-breakpoint($computer) {
+					display: inline;										
+				}
+			}
+			span {
+				display: none;
+				@include at-breakpoint($computer) {
+					display: inline;
+				}
+			}
+		}
+		&:last-child a {
+			@include border-radius(0 2px 2px 0);
+		}
+		&:first-child a {
+			@include border-radius(2px 0 0 2px);
+		}				
+
+		a.share-facebook, a.share-twitter {
+			@include at-breakpoint($computer) {
+				width: 120px;								
+			}
+			i {
+				@include at-breakpoint($computer) {
+					margin-right: 20px;							
+				}
+			}
+		}
+
+		a.share-facebook { background: #3b5999; }
+		a.share-twitter { background: #5ea9dd; }
+		a.share-whatsapp { background: #1da110; }
+		a.share-gplus { background: #da5634; }
+		a.share-mail { background: #5b5b5b; }
+		
+		a.share-facebook:hover { background: lighten(#3b5999, 5%); }
+		a.share-twitter:hover { background: lighten(#5ea9dd, 5%); }
+		a.share-whatsapp:hover { background: lighten(#1da110, 5%); }
+		a.share-gplus:hover { background: lighten(#da5634, 5%); }
+		a.share-mail:hover { background: lighten(#5b5b5b, 5%); }
+	}
+}
+
+
+// Cards
+
+#the-content .post-content .card {
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	padding: 15px;
+	margin: 0 0 25px 0;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	@include border-radius(2px);
+	a.permalink {
+		float: right;
+		font-size: 11px;
+		color: $color-text-alt;
+		text-decoration: underline;
+	}
+
+	>i {
+		font-family: 'fontello';
+		font-size: 24px;
+		float: left;
+		line-height: 0;
+		padding-top: 8px;
+		color: #d9d9d9;
+	}
+
+	h4 {
+		font-family: $lora;
+		font-weight: bold;
+		font-size: 16px;
+		font-style: italic;
+		padding-bottom: 30px;
+	}
+
+	.card_content {
+		text-align: center;
+		margin-top: 25px;
+
+		p {
+			line-height: 140%;
+			color: $color-text;
+			font-size: 16px;
+		}
+	}
+}
+
+#the-content .post-content .card_twitter .tweet-container {
+	margin: 0 auto;
+	@include at-breakpoint($tablet-v) { 
+		width: 480px;
+	}
+}
+
+#the-content .post-content .card_facebook .card_content {
+	padding-bottom: 10px;
+}
+
+#the-content .post-content .card_youtube .card_content .youtube-embed-container,
+#the-content .post-content .youtube-full .youtube-embed-container, { // para hacer el video responsive
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%; 
+	height: auto; 
+	clear: both;
+}
+
+#the-content .post-content .card_youtube .card_content .youtube-embed-container iframe,
+#the-content .post-content .card_youtube .card_content .youtube-embed-container object,
+#the-content .post-content .card_youtube .card_content .youtube-embed-container embed,
+#the-content .post-content .youtube-full .youtube-embed-container iframe,
+#the-content .post-content .youtube-full .youtube-embed-container object,
+#the-content .post-content .youtube-full .youtube-embed-container embed {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+}
+
+#the-content .post-content .youtube-full {
+	margin-bottom: 20px;
+}
+
+#the-content .post-content .card_vine .card_content .vine-embed-container {
+	position: relative; 
+	padding-bottom: 100%; 
+	height: 0; 
+	overflow: hidden;
+	clear: both;
+}
+
+#the-content .post-content .card_vine .card_content .vine-embed-container iframe,
+#the-content .post-content .card_vine .card_content .vine-embed-container object,
+#the-content .post-content .card_vine .card_content .vine-embed-container embed {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+}
+
+#the-content .post-content .card_instagram .card_content .instagram-embed-container {
+	position: relative; 
+	padding-bottom: 120%; 
+	height: 0; 
+	overflow: hidden;
+	clear: both;
+}
+
+#the-content .post-content .card_instagram .card_content .instagram-embed-container iframe,
+#the-content .post-content .card_instagram .card_content .instagram-embed-container object,
+#the-content .post-content .card_instagram .card_content .instagram-embed-container embed {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%;
+}
+
+#the-content .post-content .card_googleplus {
+	overflow-x: visible;
+	padding-bottom: 25px;
+	@include at-breakpoint($mobile-h) {
+		padding-bottom: 10px;
+	}
+	@include at-breakpoint($tablet-v) { 
+		overflow-x: hidden;
+	}
+} 
+
+#the-content .post-content .card_quote {
+
+	span {
+		font-family: $lora;
+		font-weight: bold;
+		font-style: italic;	
+		font-size: 16px;
+	}
+
+	a.permalink {
+		margin-top: 7px;
+		content: '#';
+	}
+
+	.card_content {
+		text-align: left;
+		font-size: 17px;
+		line-height: 150%;
+		padding: 10px 10px 5px;
+		color: $color-text-alt;
+		margin-top: 0px;
+
+		p {
+			margin-bottom: 15px;
+
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+}
+
+#the-content .post-content .card_element {
+	background: #fff;
+	width: 100%;
+	padding: 0;
+	header {
+		background: $color-1;
+		color: #fff;
+		padding: 15px 10px 15px 16px;
+		width: 100%;
+		h3 {
+			margin-right: 30px;
+			line-height: 120%;
+			font-family: $fira;
+			font-style: italic;
+			font-weight: 700;
+			font-size: 18px;
+		}
+		a.permalink {
+			color: #fff;
+			text-decoration: none;
+			font-size: 11px;
+			padding: 5px;
+			position: relative;
+			top: 1px;
+		}
+
+	}
+
+	.card_content {
+		padding: 0 30px 10px 30px;
+		text-align: left;
+		line-height: 150%;
+		margin-top: 10px;
+
+		time {
+			display: block;
+			font-size: 11px;
+			color: $color-text-aside;			
+		}
+
+		.card, ul, ol, blockquote {
+			margin-bottom: 20px;
+		}
+
+		p {
+			margin-bottom: 15px;
+			line-height: 150%;
+		}
+
+		p:last-child {
+			margin-bottom: 20px;
+		}
+
+		img.alignnone {
+			width: 100%;
+			height: auto;
+			margin: 10px 0;
+		}
+
+		.card a.permalink {
+			margin-top: -3px;
+		}
+
+		.card_quote a.permalink {
+			margin-top: 3px;
+		}
+	}
+}
+
+// Comentarios
+
+#comments {
+	text-align: center;
+	margin: 20px auto 20px auto;
+    @include at-breakpoint($tablet-v) {
+		margin: 55px auto 45px auto;
+    } 
+}
+
+// Footer
+
+footer#site-footer {
+	@include pie-clearfix;
+	padding: 0px 30px 30px 30px;
+    @include at-breakpoint($tablet-v) {
+		padding: 30px 40px;
+    } 
+	nav {
+		position: relative;
+		top: 8px;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 30px;
+	    @include at-breakpoint($tablet-v) { 
+			width: 40%;
+			float: left;
+			margin-bottom: 0;
+			text-align: left;
+	    } 
+		ul {
+		font-size: 9px;
+		@include at-breakpoint($tablet-v) { 
+			font-size: 11px;
+		} 
+
+			li {
+				display: inline-block;
+				padding: 1px 4px;
+			    @include at-breakpoint($tablet-v) { 
+					padding: 1px 15px;
+			    } 
+				a {
+					color: $color-text-alt;
+					text-decoration: none;
+					&:hover {
+						color: $color-1;
+					}
+				}
+			}
+			li:first-child {
+				padding-left: 0;
+			}
+		}
+
+	}
+	a.site-logo {
+		display: block;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 20px;
+	    @include at-breakpoint($tablet-v) { 
+			width: 20%;
+			float: left;
+			margin-bottom: 0px;
+	    } 
+		svg {
+			width: 140px;
+			height: 19px;
+			margin-top: 5px;
+			@include at-breakpoint($tablet-v) { 
+				width: 150px;
+				height: 20px;
+				margin-top: 0;
+			}
+		}
+	}
+	span {
+		display: block;
+		width: 100%;
+		font-size: 11px;
+		line-height: 120%;
+		text-align: center;
+		color: $color-text-alt;
+		margin-top: 8px;
+	    @include at-breakpoint($tablet-v) { 
+			width: 40%;
+			float: right;
+			text-align: right;
+	    } 
+	}
+}
+
+// Sidebar
+
+aside#sidebar {
+	@include pie-clearfix;
+	margin: 0 auto;
+    @include at-breakpoint($tablet-v) {
+		max-width: 100%;
+		@include pie-clearfix;
+    }
+    @include at-breakpoint($tablet-h) {
+    	@include span-columns(4 omega,12);
+    }
+    @include at-breakpoint($computer) {
+    	padding-left: 57px;
+    }
+    .ad {
+		margin-bottom: 20px;
+		text-align: center;
+	    @include at-breakpoint($tablet-v) {
+	    	float: right;
+	    }
+	    @include at-breakpoint($computer) {
+			margin-bottom: 30px;
+	    }
+	    &.hidden-ad {
+		    @include at-breakpoint($mobile-h) {
+	    		display: none;
+		    }
+		    @include at-breakpoint($tablet-h) {
+	    		display: block;
+		    }
+	    }
+    }
+    #custom-post-list {
+	    @include at-breakpoint($mobile-h) {
+	    	@include span-columns(6,6);
+	    }
+	    @include at-breakpoint($tablet-v) {
+	    	@include span-columns(8,8);
+	    }
+	    @include at-breakpoint($tablet-h) {
+	    	@include reset-columns;
+	    }
+	    li {
+		    @include at-breakpoint($mobile-h) {
+		    	@include span-columns(3,6);
+		    }
+		    @include at-breakpoint($tablet-v) {
+		    	@include span-columns(4,8);
+		    }
+		    @include at-breakpoint($tablet-h) {
+		    	@include reset-columns;
+		    }
+		    &:nth-child(2n) {
+			    @include at-breakpoint($mobile-h) {
+			    	@include span-columns(3 omega,6);
+			    }
+			    @include at-breakpoint($tablet-v) {
+			    	@include span-columns(4 omega,8);
+			    }
+			    @include at-breakpoint($tablet-h) {
+			    	@include reset-columns;
+			    }
+		    }
+	    }
+    }
+}
+
+// Long Form
+
+.icon-porven {
+	background: url(../images/icon-porven.png) no-repeat;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+.avatar-author {
+	background: #111 url(../images/avatar.jpg) no-repeat center center;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	@include border-radius(1000px);
+	margin-right: 10px;
+}
+.hr-icon {
+	@include pie-clearfix;
+	opacity: 0.25;
+	span {
+		float: left;
+		display: block;
+		float: left;
+		height: 2px;
+		padding: 0;
+		width: 40%;
+		background: #fff;
+	}
+	i {
+		float: left;
+		margin: 0 5px 0 9px;
+		position: relative;
+		bottom: 12px;
+
+	}
+}
+
+video#bgvid {
+	position: fixed; right: 0; bottom: 0;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto; z-index: -100;
+	background: url(polina.jpg) no-repeat;
+	background-size: cover;
+}
+
+	 #site-header.header-longform {
+		background-color: $color-text;
+		height: 400px;
+		padding: 0 !important;
+		position: relative;
+		@include at-breakpoint($tablet-h) {
+			height: 500px;
+		}						
+		@include at-breakpoint($computer) {
+			height: 700px;
+		}
+		.header-longform-image {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: scroll;
+			background-size: cover;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			opacity: 0.5;
+			@include filter(grayscale(100%)); 
+		  	filter: url(grayscale.svg);
+		  	filter: gray;
+			@include at-breakpoint($tablet-h) {
+				height: 500px;
+			}						
+			@include at-breakpoint($computer) {
+				height: 700px;
+				background-attachment: fixed;
+			}
+		}
+		.header-degrade {
+			height: 400px;
+			position: relative;
+			z-index: 9999;
+			@include filter-gradient(#111111, #111111, vertical); // IE6-9
+			@include background-image(linear-gradient(top, rgba(17,17,17,0) 0%,rgba(17,17,17,0.74) 25%,rgba(17,17,17,0.99) 70%));
+			@include at-breakpoint($tablet-h) {
+				height: 500px;
+			}
+			@include at-breakpoint($computer) {
+				height: 700px;
+			}		
+			.container {
+				height: 400px;
+				position: relative;	
+				@include at-breakpoint($tablet-h) {
+					height: 500px;
+				}	
+				@include at-breakpoint($computer) {
+					height: 700px;
+				}				
+			}
+		}
+		.site-logo {
+			background: inherit;
+			margin-left: $gutter-width;
+			@include at-breakpoint($tablet-h) {
+				margin-left: 0;
+			}	
+			#logo-header {
+				width: 140px;
+				height: 19px;
+				@include at-breakpoint($tablet-h) {
+					width: 285px;
+					height: 38px;
+				}	
+				path {
+					fill: #fff;
+				}
+			}
+		}
+		#header-post {
+			width: 100%;
+			left: 0;
+			padding: 0 5%;
+			clear: both;
+			text-align: center;
+			color: #fff;
+			position: absolute;
+			bottom: 30px;
+			@include at-breakpoint($tablet-h) {
+				bottom: 30px;
+			}
+			.title {
+				margin-bottom: 45px;
+				h1 {
+					font-family: $fira;
+					font-size: 30px;
+					letter-spacing: -0.035em;
+					margin-bottom: 5px;
+					color: #fff;
+					border-bottom: none;
+					padding: 0;
+					text-align: center;
+					@include at-breakpoint($mobile-h) {
+						font-size: 45px;
+						margin-bottom: 10px;
+					}	
+					@include at-breakpoint($tablet-h) {
+						font-size: 60px;
+						margin-bottom: 15px;
+					}	
+				}
+				strong {
+					font-style: italic;
+					font-size: 17px;
+					font-weight: normal;
+					line-height: 130%;
+					@include at-breakpoint($mobile-h) {
+						font-size: 22px;
+					}					
+					@include at-breakpoint($tablet-h) {
+						font-size: 26px;
+					}					
+				}
+			}
+			.author {
+				margin: 0 auto;
+				width: 200px;
+				font-size: 11px;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				em {
+					font-style: italic;
+					text-transform: lowercase;
+				}
+				p {
+					margin-top: 20px;
+				}
+			}
+		}
+	}	
+
+.longform #content {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	padding-top: 15px;
+}
+
+.longform #the-content {
+	width: 100%;
+	padding: 0 0 20px 0;
+	margin: 0;
+	@include at-breakpoint($computer) {
+		padding: 0 0 40px 0;
+	}	
+	@include at-breakpoint($computer) {
+		padding: 0 0 90px 0;
+	}	
+	#interaccion {
+		border-top: 1px solid $box-border;
+		margin-top: 30px;
+		@include at-breakpoint($tablet-v) {
+			margin-top: 40px;
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}	
+		@include at-breakpoint($tablet-h) {
+			margin-top: 75px;
+		}
+	}
+	#metadata-longform {
+		@include pie-clearfix;
+		border-bottom: 1px solid $box-border;
+		@include at-breakpoint($tablet-v) {
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}	
+		#metadata {
+			time {
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
+	}
+	.post-content {
+		padding-top: 30px;
+		p {
+			margin-bottom: 30px;
+		}
+	}
+}
+.longform .post-content {
+	.container:last-child p:last-child::after {
+		content: "■";
+		margin-left: 3px;
+	}
+}
+
+.longform #the-post {
+	background: none;
+	border: 0;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	@include pie-clearfix;
+	blockquote p:last-child::after,
+	div p:last-child::after
+	* p:last-child::after {
+		content: "";
+		margin-left: 0;
+	}				
+	p {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		padding: 0 $gutter-width;
+		@include at-breakpoint($tablet-v) {
+			padding: 0;
+		}	
+		@include at-breakpoint($tablet-v) {
+			width: 700px;
+		}	
+	}
+
+	h3 {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		font-family: $fira;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		font-weight: bold;
+		font-size: 24px;
+		color: $color-1;
+		letter-spacing: -0.010em;
+		margin-left: $gutter-width;
+		@include at-breakpoint($tablet-v) {
+			margin-top: 50px;
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+		}				
+	}
+	blockquote {
+		font-family: $fira;
+		color: $color-text;
+		margin: 20px 0;
+		line-height: 115%;
+		font-size: 28px;
+		letter-spacing: -0.025em;
+		font-weight: 300;
+		font-style: normal;
+		@include at-breakpoint($tablet-v) {
+			width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+			margin: 40px 0;
+		}
+		@include at-breakpoint($tablet-h) {
+			width: 85%;
+			font-size: 36px;
+		}	
+		@include at-breakpoint($computer) {
+			width: 80%;
+		}
+
+		p {
+			width: 100%;
+		}	
+	}		
+
+	// Pictures
+
+	.longform-full {
+		margin: 20px 0 20px 0;
+		@include at-breakpoint($tablet-v) {
+			margin: 40px 0 40px 0;
+		}
+		picture img {
+			width: 100%;
+			height: auto;
+			margin: 0 auto;
+		}	
+	}
+
+	.longform-medium {
+		margin: 20px auto;
+		width: 100%;
+		@include at-breakpoint($tablet-v) {
+			margin: 40px auto;
+			width: 700px;
+		}			
+		picture img {
+			width: 100%;
+			@include at-breakpoint($tablet-v) {
+				width: 700px;
+			}	
+		}
+	}
+
+	.longform-background {
+		margin: 20px auto;
+		width: 100%;	
+		padding: 0;
+		color: #fff;
+		@include at-breakpoint($tablet-v) {
+			margin: 40px auto;
+		}		
+		@include at-breakpoint($tablet-h) {
+			padding: 65px 50px 50px 50px;
+		}		
+		.background-section {
+			margin: 0 auto;
+			padding: 25px;
+			width: 100%;
+			background: rgba(17,17,17,0.5);
+			@include at-breakpoint($tablet-v) {
+				background: rgba(17,17,17,0.3);
+				padding: 35px;
+			}
+			@include at-breakpoint($tablet-h) {
+				width: 700px;
+				background: transparent;
+				padding: 0px;
+			}
+
+			section {
+				width: 100%;
+				@include at-breakpoint($tablet-v) {
+					width: 75%;
+				}				
+				@include at-breakpoint($tablet-h) {
+					width: 50%;
+				}
+
+				h3 {
+					color: #fff;
+					font-family: $lora;
+					font-size: 30px;
+					width: 100%;
+					margin-top: 0;
+					letter-spacing: -0.025em;
+					margin-bottom: 30px;
+					@include at-breakpoint($tablet-v) {
+						font-size: 40px;
+					}
+					@include at-breakpoint($tablet-h) {
+						font-size: 48px;
+					}
+					strong {
+						font-size: 40px;
+						@include at-breakpoint($tablet-v) {
+							font-size: 50px;
+						}
+						@include at-breakpoint($tablet-h) {
+							font-size: 60px;
+						}
+					}			
+				}
+
+				p {
+					width: 100%;
+					line-height: 145%;
+					margin-bottom: 20px;
+					font-size: 17px;
+					@include at-breakpoint($tablet-v) {
+						font-size: 18px;
+					}					
+				}
+			}
+		}	
+	}	
+
+	.longform-picture {
+		figcaption {
+			font-size: 11px;
+			padding: 7px $gutter-width;
+			border-bottom: 1px solid $box-border;
+			color: $color-text-aside;
+			line-height: 135%;
+			@include at-breakpoint($tablet-v) {
+				padding: 7px 0;
+			}				
+		}
+	}
+
+}
+
+#site-footer.footer-longform {
+	padding: 10px 30px 30px 30px;
+	@include at-breakpoint($tablet-v) {
+		padding: 60px 40px;
+	}		
+}
