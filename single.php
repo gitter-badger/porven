@@ -21,19 +21,22 @@ if($_GET['image'] == 1) {
 	} else {
 
 		if( has_term( 'multimedia', 'formatos' ) ) {
+			$post_format = 'multimedia';
 			get_header();
 			require_once( TEMPLATEPATH . '/single-template-multimedia.php');
 			get_footer();			
 		}
 		elseif( has_term( 'dossier', 'formatos' ) ) {
+			$post_format = 'dossier';
 			get_header();
 			require_once( TEMPLATEPATH . '/single-template-dossier.php');
 			get_footer();
 		}
 		elseif( has_term( 'longform', 'formatos' ) ) {
+			$post_format = 'longform';
 			require_once( TEMPLATEPATH . '/header-longform.php');
 			require_once( TEMPLATEPATH . '/single-template-longform.php');
-			require_once( TEMPLATEPATH . '/footer-longform.php');
+			get_footer();
 		}		
 		else {
 			get_header();

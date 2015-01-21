@@ -1,5 +1,3 @@
-<?php include'header.php' ?>
-
 <div class="wrapper">
 
 	<header id="header-post" class="header-post-dossier filter-grayscale">
@@ -121,4 +119,3 @@
 
 </div>
 <!--wrapper-->
-<?php include'footer.php' ?>

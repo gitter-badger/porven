@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Porven</title>
-	<link href="css/jquery.bxslider.css" rel="stylesheet" />
-    <link href="css/screen.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700,300italic,400italic,500italic,700italic|Asap:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
-</head>
+<?php include( TEMPLATEPATH . '/head.php' ); ?>
 <body>
 
 <header id="site-header" class="header-longform">
-<div class="header-longform-image" style="background-image: url(images/_image7.jpg);">&nbsp;</div>
+
+<?php if(has_post_thumbnail()) {
+     $image_id = get_post_thumbnail_id();
+     $image_info = wp_get_attachment_image_src($image_id,'full', true);
+     $image_url = $image_info[0];
+}     
+?>     
+
+<div class="header-longform-image" style="background-image: url(<?php echo $image_url ?>);">&nbsp;</div>
 <div class="header-degrade">
 	<div class="container">
-		<a  class="site-logo" href="http://porven.me">
+		<a  class="site-logo" href="<?php bloginfo('url') ?>">
 			<svg version="1.1" id="logo-header" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				 viewBox="0 0 418.271 56.413" enable-background="new 0 0 418.271 56.413"
 				 xml:space="preserve">

@@ -13,43 +13,33 @@
 	</div>
 
 	<ul id="custom-post-list">
-		<li>
-			<a href="#" class="custom-post filter-grayscale custom-post-alert">
-				<div class="custom-post-img" style="background: #111 url(images/_image5.jpg) center center no-repeat; background-size: cover; height: 170px;">&nbsp;</div>
-				<div class="bg-gradient">
-					<span>Econom&iacute;a</span>
-					<h3>Mart&iacute;n Lousteau: "El Gobierno busc&oacute; d&oacute;lares que son caros"</h3>
-				</div>
-			</a>
-		</li>
 
-		<li>
-			<a href="#" class="custom-post filter-grayscale">
-				<div class="custom-post-img" style="background: #111 url(images/_image.jpg) center center no-repeat; background-size: cover; height: 170px;">&nbsp;</div>
-				<div class="bg-gradient">
-					<span>Deportes</span>
-					<h3>Llega Pablo Álvarez, pero se desvanece el sueño Delgado</h3>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="custom-post filter-grayscale">
-				<div class="custom-post-img" style="background: #111 url(images/_image2.jpg) center center no-repeat; background-size: cover; height: 170px;">&nbsp;</div>
-				<div class="bg-gradient">
-					<span>Sociedad</span>
-					<h3>Reparados, Inodoro y Mendieta volver&aacute;n a la sombra del ceibo en el parque Espa&ntilde;a</h3>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="#" class="custom-post filter-grayscale">
-				<div class="custom-post-img" style="background: #111 url(images/_image4.jpg) center center no-repeat; background-size: cover; height: 170px;">&nbsp;</div>
-				<div class="bg-gradient">
-					<span>Sociedad</span>
-					<h3>Reparados, Inodoro y Mendieta volver&aacute;n a la sombra del ceibo en el parque Espa&ntilde;a</h3>
-				</div>
-			</a>
-		</li>
+		<?php query_posts("post_type=post&posts_per_page=7&ignore_sticky_posts=0"); while (have_posts()) : the_post(); 
+
+			// Llamamos al thumbnail
+			if(has_post_thumbnail()) {
+			     $image_id = get_post_thumbnail_id();
+			     $image_info = wp_get_attachment_image_src($image_id,'medium', true);
+			     $image_url = $image_info[0];
+			} else {
+			     $image_url = get_bloginfo('template_url').'/images/thumb-default.jpg'; // Imagen por defecto 
+			} ?>
+
+			<li>
+				<a href="<?php the_permalink() ?>" class="custom-post filter-grayscale">
+					<div class="custom-post-img" style="background: #111 url(<?php echo $image_url ?>) center center no-repeat; background-size: cover; height: 170px;">&nbsp;</div>
+					<div class="bg-gradient">
+						<span><?php
+							$category = get_the_category(); 
+							$name = $category[0]->cat_name;
+							echo $name;
+						?></span>
+						<h3><?php the_title() ?></h3>
+					</div>
+				</a>
+			</li>
+
+		<?php endwhile; wp_reset_query(); ?> 
 	</ul>
 
 	<div class="ad hidden-ad">

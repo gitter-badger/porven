@@ -1,4 +1,5 @@
-<footer id="site-footer">
+<footer id="site-footer"<?php global $post_format; if( $post_format == 'longform' ) { echo ' class="footer-longform"';} // Si es longform agrega una clase y el container ?>>
+	<?php if( $post_format == 'longform' ) { echo '<div class="container">';} ?>
 	<nav>
 		<ul>
 			<li><a href="#">Contacto</a></li>
@@ -61,13 +62,16 @@
 	</a>
 
 	<span>&copy;Porven, todos los derechos reservados.</span>
-
+<?php if( $post_format == 'longform' ) { echo '</div>';} ?>
 </footer>
 </div>
 </div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="js/jquery.bxslider.js"></script>
-	<script src="js/global.js"></script>
+	<?php if( $post_format == 'multimedia' ) { // Carga jQuery y el JS del slide solo en galería?>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="<?php bloginfo('template_url') ?>/js/jquery.bxslider.js"></script>
+	<?php } ?>
+	<script src="<?php bloginfo('template_url') ?>/js/global.js"></script>
+
 	<script>
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -77,6 +81,29 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
-	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<?php 
+		$post_to_check = get_post(get_the_ID()); 
+		$content = $post_to_check->post_content;
+	?>
+	<?php //if(has_shortcode( $content, 'twitter')) { ?><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><?php //} ?>
+	<?php if(has_shortcode( $content, 'pinterest')) { // Carga los JS solo cuando encuentra en el content que se usaron los shortcodes ?><script src="//assets.pinterest.com/js/pinit.js" charset="utf-8"></script><?php } ?>
+	<?php if(has_shortcode( $content, 'googleplus')) { ?><script src="//apis.google.com/js/platform.js" async defer></script><?php } ?>
+
+	<?php $server = $_SERVER["REMOTE_ADDR"]; if(strpos($server,'192.168.0.1') === false) { // Evita que en localhost se cargue el codigo de Analytics ?>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-55656636-1', 'auto');
+		  ga('require', 'displayfeatures');
+		  ga('send', 'pageview');
+
+		</script>
+	<?php } ?>	
+
+	<?php wp_footer() ?>
+
 </body>
 </html>

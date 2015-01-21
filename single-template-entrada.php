@@ -1,7 +1,7 @@
 <div class="wrapper">
 
 	<header id="header-post">
-		<time>	<?php echo curated_human_time_diff(get_the_time('U'), current_time('timestamp')); ?></time>
+		<time><?php echo curated_human_time_diff(get_the_time('U'), current_time('timestamp')); ?></time>
 		<h1><?php the_title() ?></h1>
 		<span class="categorie-post">
 			<?php
@@ -137,7 +137,7 @@
 								<span><?php echo get_post_meta( get_the_ID(), 'socialcount_TOTAL' )[0]; ?></span>
 							</div>
 							<div id="social-share-bottom" class="right">
-								<?php include'social-share.php' ?>		
+								<?php include( TEMPLATEPATH . '/social-share.php' ); ?>	
 							</div>
 						</li>
 					</ul>
@@ -147,22 +147,8 @@
 
 			<?php if(get_field('permitir_comentarios')) { ?><?php comments_template() ?><?php } ?>
 
-			<ul id="related-posts">
-				<li>
-					<a href="#" class="box-post">
-						<div style="background: #111 url(images/_image2.jpg) center center no-repeat; background-size: cover; height: 219px; margin-bottom: 10px;">&nbsp;</div>
-						<span>Hace una semana</span>
-						<h3>Buscan simplificar los tr&aacute;mites para alquilar en Rosario</h3>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="box-post">
-						<div style="background: #111 url(images/_image2.jpg) center center no-repeat; background-size: cover; height: 219px; margin-bottom: 10px;">&nbsp;</div>
-						<span>Ayer por la tarde</span>
-						<h3>Los festejos por el fin del ciclo lectivo dejaron al Monumento hecho un basural</h3>
-					</a>
-				</li>
-			</ul>
+			<?php include( TEMPLATEPATH . '/related-posts.php' ); ?>
+
 		</div>
 		<!--content-->
 		<?php include'sidebar.php' ?>
