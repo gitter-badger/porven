@@ -14,7 +14,15 @@
 
 	<ul id="custom-post-list">
 
-		<?php query_posts("post_type=post&posts_per_page=7&ignore_sticky_posts=0"); while (have_posts()) : the_post(); 
+		<?php 
+		$post_id = get_the_ID(); 
+		$args = array(
+				'post_type' => 'post',
+		        'posts_per_page' => 8,
+		        'post__not_in' => array($post_id),
+		        'ignore_sticky_posts' => 0
+		);
+		query_posts($args); while (have_posts()) : the_post(); 
 
 			// Llamamos al thumbnail
 			if(has_post_thumbnail()) {

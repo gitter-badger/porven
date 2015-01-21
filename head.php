@@ -36,7 +36,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 			<meta property="og:title" content="<?php the_title() ?>" />
 			<meta property="og:type" content="article" />
 			<meta property="og:url" content="<?php the_permalink() ?>" />
-			<meta property="og:image" content="<?php echo $image_url ?>" /> <!-- Colocar aca el thumb . Averiguar para hacerlo grande -->
+			<meta property="og:image" content="<?php echo $image_url ?>" />
 			<meta property="og:site_name" content="Porven"/>
 			<meta property="fb:admins" content="589757944" />
 			<meta property="og:description" content="<?php echo get_the_excerpt() ?>" />

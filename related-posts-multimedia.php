@@ -1,6 +1,7 @@
 <ul id="related-posts">
 				
 	<?php 
+	// Otras noticias multimedia
 		$post_id = get_the_ID(); 
 		$args = array(
 		        'posts_per_page' => 6,

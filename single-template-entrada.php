@@ -30,11 +30,11 @@
 					<div style="background: #111 url(<?php echo $image_url ?>) center center no-repeat; background-size: cover;">&nbsp;</div>
 					<?php if(!empty($image_alt)) { echo '<p>'.$image_alt.'</p>'; } ?>
 				
-				<?php } ?>
+				<?php } else { $no_image = 1; } ?>
 
 				</div>
 				<div class="clear metadata-entrada">
-					<div id="metadata">
+					<div id="metadata"<?php if($no_image == 1) { echo ' class="no-image"'; } ?>>
 						<?php if(get_field('mostrar_autor')) { ?><div class="left avatar-author"><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?></div><?php } ?>
 						<div class="time-post left">
 							<time><?php the_time('l j') ?> de <?php the_time('F') ?><?php if(get_the_time('Y') !== date('Y')) { ?> de <?php the_time('Y'); } ?>, <?php the_time('G:i') ?> hs.</time>
@@ -42,8 +42,8 @@
 								<?php 
 								//$location_user_det = explode(',', $_SESSION['location_user']);
 								//echo distancia(get_field('coordenadas')['lat'], get_field('coordenadas')['lng'], $location_user_det[0], $location_user_det[1]) 
-								echo 'A 8';
-								?>km de distancia
+								//echo 'A 8 km de distancia';
+								?>
 							</span>
 							<?php if(get_field('mostrar_autor')) { ?><span><em>por</em> <?php the_author() ?></span><?php } ?>
 						</div>

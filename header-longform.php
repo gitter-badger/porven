@@ -8,7 +8,18 @@
      $image_info = wp_get_attachment_image_src($image_id,'full', true);
      $image_url = $image_info[0];
 }     
-?>     
+?>
+
+<?php 
+	/* Si es un video
+
+	<video autoplay loop poster="polina.jpg" id="bgvid" class="header-longform-image" >
+		<source src="polina.webm" type="video/webm">
+		<source src="polina.mp4" type="video/mp4">
+	</video>
+
+	*/
+?>
 
 <div class="header-longform-image" style="background-image: url(<?php echo $image_url ?>);">&nbsp;</div>
 <div class="header-degrade">
