@@ -118,10 +118,9 @@ add_shortcode('quote', 'sc_quote');
 // Card
 
 function sc_card($atts, $content = null) {
-     $id = $atts['id'];  
-     global $number_card;
+     $id = $atts['id'];
      query_posts("p=$id&post_type=card"); while (have_posts()) : the_post();
-     $dossier_numbers = '<span><strong>'.get_the_ID().'</strong> / '.$number_card.'5</span>';
+     //$dossier_numbers = '<span><strong>'.get_the_ID().'</strong> / '.$number_card.'5</span>';
      $sc_return = '<div class="card card_element" id="card-'.$id.'"><header>'.$dossier_numbers.'<h3>'.get_the_title().'</h3></header><div class="card_content">';
      $sc_return .= '<a target="_blank" class="permalink" href="'.get_the_permalink().'"><time title="'.get_the_time('l j \d\e F \d\e Y \a \l\a\s H:i').'">'.curated_human_time_diff(get_the_time('U'), current_time('timestamp')).'</time></a>';
      $sc_return .= apply_filters('the_content',get_the_content());
