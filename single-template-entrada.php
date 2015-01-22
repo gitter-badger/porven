@@ -35,7 +35,7 @@
 				</div>
 				<div class="clear metadata-entrada">
 					<div id="metadata"<?php if($no_image == 1) { echo ' class="no-image"'; } ?>>
-						<?php if(get_field('mostrar_autor')) { ?><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?><?php } ?>
+						<?php if(get_field('mostrar_autor')) { ?><div class="left avatar-author"><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?></div><?php } ?>
 						<div class="time-post left">
 							<time><?php the_time('l j') ?> de <?php the_time('F') ?><?php if(get_the_time('Y') !== date('Y')) { ?> de <?php the_time('Y'); } ?>, <?php the_time('G:i') ?> hs.</time>
 							<span>

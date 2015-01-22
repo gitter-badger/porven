@@ -2,26 +2,36 @@
 
 	<div class="clear metadata-entrada">
 		<div id="metadata">
-			<div class="left avatar-author"><img src=".." alt=""/></div>
+			<div class="left avatar-author"><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?></div>
 			<div class="time-post left">
-				<time>Actualizado hace dos semanas</time>
-				<span><em>por</em> Horacio Bella</span>
+				<time>Actualizado hace <?php echo curated_human_time_diff(get_the_modified_date('U'), current_time('timestamp'), 'clear') ?></time>
+				<span><em>por</em> <?php the_author() ?></span>
 			</div>
 		</div>
 
 		<div id="social-share-sidebar">
-			<?php include'social-share.php' ?>
+			<?php include( TEMPLATEPATH . '/social-share.php' ); ?>
 		</div>
 	</div>
 
-	<p>El fiscal encargado de la causa AMIA y que recientemente manifestó acusaciones contra la Presidenta Cristina Fernandez de Kirchner, apareció muerto en su departamento de Puerto Madero.</p>
+	<p><?php echo get_the_excerpt() ?></p>
 
 	<div id="dossier-sumary" class="menu-fixed">
 		<header><span>Sumario del dossier</span></header>
 		<ul>
-			<li><a href="#card-1"><small>1.</small><span>¿Qué es el Cyber Monday Argentina?</span></a></li>
-			<li><a href="#card-2"><small>2.</small><span>¿Quién lo organiza?</span></a></li>
-			<li><a href="#card-3"><small>3.</small><span>¿Qué empresas participan ofreciendo descuentos?</span></a></li>
+			<?php 
+				$sumary = explode('[card id="', get_the_content());
+				//$sumary = strstr($sumary, '"', true);
+				//print_r($sumary);
+				$number_card = 0;
+				foreach ($sumary as $sum) {
+					if (!empty($sum)) {
+						$id = strstr($sum, '"', true);
+						echo '<li><a href="#card-'.$id.'"><small>'.$number_card.'.</small><span>'.get_the_title($id).'</span></a></li>';
+					}
+					$number_card++;
+				}
+			?>
 		</ul>
 	</div>
 

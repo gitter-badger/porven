@@ -2,6 +2,7 @@
 				
 	<?php 
 		// Post de la misma categoría
+		$category = get_the_category();
 		$post_id = get_the_ID(); 
 		$current_cat = $category[0]->cat_ID;
 		$args = array(
