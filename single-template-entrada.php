@@ -25,6 +25,7 @@
 				     $image_info = wp_get_attachment_image_src($image_id,'large', true);
 				     $image_url = $image_info[0];
 				     $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				     $no_image = 0;
 				     ?>
 
 					<div style="background: #111 url(<?php echo $image_url ?>) center center no-repeat; background-size: cover;">&nbsp;</div>
@@ -110,14 +111,14 @@
 				</div>
 				<!--the-content-->
 
-				<?php if(!empty(get_field('fuente'))) { ?>
+				<?php $fuente = get_field('fuente'); if(!empty($fuente)) { ?>
 				<div id="fuente" class="post-list">
 					<span>Fuente</span>
 					<ul>
 						<li>
 							<p><?php echo get_field('fuente') ?></p>
 							<div class="right">
-								<?php if(!empty(get_field('fuente_url'))) { ?><a href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Link"></i></a><?php } ?>
+								<?php $fuente_url = get_field('fuente_url'); if(!empty($fuente)) { ?><a href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Link"></i></a><?php } ?>
 							</div>
 						</li>
 					</ul>
@@ -135,7 +136,7 @@
 							<?php } ?>
 							<div class="comments-share">
 								<i class="icon-share"></i>
-								<span><?php echo get_post_meta( get_the_ID(), 'socialcount_TOTAL' )[0]; ?></span>
+								<span><?php $share_score = get_post_meta( get_the_ID(), 'socialcount_TOTAL' ); echo $share_score[0] ?></span>
 							</div>
 							<div id="social-share-bottom" class="right">
 								<?php include( TEMPLATEPATH . '/social-share.php' ); ?>	

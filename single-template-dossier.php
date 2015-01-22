@@ -47,7 +47,7 @@
 						<li>
 							<div class="comments-share">
 								<i class="icon-share"></i>
-								<span><?php echo get_post_meta( get_the_ID(), 'socialcount_TOTAL' )[0]; ?></span>
+								<span><?php $share_score = get_post_meta( get_the_ID(), 'socialcount_TOTAL' ); echo $share_score[0] ?></span>
 							</div>
 							<div id="social-share-bottom" class="right">
 								<?php include( TEMPLATEPATH . '/social-share.php' ); ?>				
