@@ -217,15 +217,14 @@ img.alignnone {
 	height: 25px;
 	display: inline-block;
 }
-.avatar-author {
+.avatar {
+	float: left;
 	display: inline-block;
-	img {
-		background: $color-text;
-		width: 50px;
-		height: 50px;
-		@include border-radius(25px);
-		margin-right: 10px;
-	}
+	background: $color-text;
+	width: 50px;
+	height: 50px;
+	@include border-radius(25px);
+	margin-right: 10px;
 }
 .hr-icon {
 	@include pie-clearfix;
