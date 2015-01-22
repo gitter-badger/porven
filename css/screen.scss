@@ -2538,33 +2538,57 @@ aside#sidebar {
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: -65px;
-	background: url(../images/arrow-left.png) no-repeat center center;
+	background: url(../images/arrow-left-mobile.png) no-repeat 10px 14px;
+	background-color: #1f1f1f;
+	left: -1px;
+	@include border-radius(0 0 2px 2px);
+	@include at-breakpoint($tablet-v) {
+		left: -65px;
+		background: url(../images/arrow-left.png) no-repeat center center;
+	}	
 
 }
 
 .bx-wrapper .bx-next {
-	right: -65px;
-	background: url(../images/arrow-right.png) no-repeat center center;
+	background: url(../images/arrow-right-mobile.png) no-repeat 18px 14px;
+	background-color: #1f1f1f;
+	right: -1px;
+	@include border-radius(2px 2px 0 0);
+	@include at-breakpoint($tablet-v) {
+		right: -65px;
+		background: url(../images/arrow-right.png) no-repeat center center;
+	}		
 }
 
 
 .bx-wrapper .bx-prev:hover {
-	opacity: 0.8;
+	@include at-breakpoint($tablet-v) {
+		opacity: 0.8;
+	}		
 }
 
 .bx-wrapper .bx-next:hover {
-	opacity: 0.8;
+	@include at-breakpoint($tablet-v) {
+		opacity: 0.8;
+	}		
 }
 
 .bx-wrapper .bx-controls-direction a {
+	width: 40px;
+	height: 50px;
+	top: 37%;
 	outline: 0;
-	width: 58px;
-	height: 32px;
 	text-indent: -9999px;
-	padding: 30px 20px 30px 20px;
 	position: absolute;
-	top: 45%;
+	@include at-breakpoint($mobile-h) {
+		top: 45%;
+	}
+	@include at-breakpoint($tablet-v) {
+		width: 58px;
+		height: 32px;
+		padding: 30px 20px 30px 20px;
+		top: 45%;
+	}		
 }
 
 
@@ -2637,42 +2661,4 @@ aside#sidebar {
 	display: block;
 	font-size: .85em;
 	padding: 10px;
-}
-
-
-@media (max-width: 767px) {
-	.bx-wrapper .bx-controls-direction a {
-		top: 27%;
-		margin-top: 0;
-		width: 40px;
-		height: 50px;
-	}
-	.bx-wrapper .bx-prev {
-		background: url(../images/arrow-left-mobile.png) no-repeat 10px 14px;
-		background-color: #1f1f1f;
-		left: -1px;
-		-webkit-border-top-right-radius: 2px;
-		-webkit-border-bottom-right-radius: 2px;
-		-moz-border-radius-topright: 2px;
-		-moz-border-radius-bottomright: 2px;
-		border-top-right-radius: 2px;
-		border-bottom-right-radius: 2px;
-	}
-	.bx-wrapper .bx-next {
-		background: url(../images/arrow-right-mobile.png) no-repeat 18px 14px;
-		background-color: #1f1f1f;
-		right: -1px;-webkit-border-top-left-radius: 2px;
-		-webkit-border-bottom-left-radius: 2px;
-		-moz-border-radius-topleft: 2px;
-		-moz-border-radius-bottomleft: 2px;
-		border-top-left-radius: 2px;
-		border-bottom-left-radius: 2px;
-	}
-	.bx-wrapper .bx-prev:hover {
-		opacity: 1;
-	}
-
-	.bx-wrapper .bx-next:hover {
-		opacity: 1;
-	}
 }
