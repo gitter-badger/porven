@@ -1,41 +1,40 @@
-<div class="wrapper">
+<div class="wrapper dossier">
 
 	<header id="header-post" class="header-post-dossier filter-grayscale">
-		<div class="img-grayscale" style="background: #111 url(images/_image6.jpg) center center no-repeat; background-size: cover;">&nbsp;</div>
-		<div class="bg-gradient">
-			<h1>Cyber Monday Argentina: el d&iacute;a de grandes descuentos para compras online</h1>
+		<div class="img-grayscale" style="background: #111 url(images/_image7.jpg) center center no-repeat; background-size: cover;">&nbsp;</div>
+		<div class="title-dossier">
+			<div class="bg-gradient">&nbsp;</div>
+			<h1>Cyber Monday Argentina: el día de grandes descuentos para compras online</h1>
 		</div>
 	</header>
 
 	<div class="clear">
-		<div id="content">
+		<div id="content" class="content-dossier">
 			<div id="the-post" class="post dossier">
 
-				<div class="clear">
+				<div class="clear metadata-content metadata-entrada">
 					<div id="metadata">
-						<div class="left avatar-author">&nbsp;</div>
+						<div class="left avatar-author"><img src=".." alt=""/></div>
 						<div class="time-post left">
 							<time>Actualizado hace dos semanas</time>
 							<span><em>por</em> Horacio Bella</span>
 						</div>
 					</div>
-
 					<div id="social-share-top">
 						<?php include'social-share.php' ?>
 					</div>
 				</div>
-				<hr class="hr-bar" />
-				
+
 				<div id="the-content">
 					<div class="post-content">
 
-						<div class="card card_element">
+						<div id="card-1" class="card card_element">
 							<header>
-								<a target="_blank" class="permalink" href="#">#</a>
+								<span><strong>1</strong>/3</span>
 								<h3>¿Qu&eacute; es el Cyber Monday Argentina?</h3>
 							</header>
 							<div class="card_content">
-								<time>Hace 9 semanas</time>
+								<a target="_blank" class="permalink" href="#"><time>Hace 9 semanas</time></a>
 								<p>Es una iniciativa que ofrece grandes descuentos en compras realizadas a través de los portales de venta online del país. Se desarrollará durante los días lunes 10 y martes 11 de noviembre y contará con más de 160 empresas de 15 rubros diferentes, con descuentos que pueden llegar hasta el 50% con respecto al precio original.</p>
 								<div class="card card_twitter">
 									<i class="icon-twitter"></i>
@@ -49,25 +48,26 @@
 							</div>
 						</div>
 
-						<div class="card card_element">
+						<div id="card-2" class="card card_element">
 							<header>
-								<a target="_blank" class="permalink" href="#">#</a>
+								<span><strong>2</strong>/3</span>
 								<h3>¿Qui&eacute;n lo organiza?</h3>
 							</header>
 							<div class="card_content">
-								<time>Hace 9 semanas</time>
+								<a target="_blank" class="permalink" href="#"><time>Hace 9 semanas</time></a>
 								<p>El evento es llevado a cabo por la Cámara Argentina de Comercio Electrónico (CACE) y es la tercera edición en nuestro país. La CACE fue creada en 1999 en el boom de las .com y tiene como objetivo nuclear a todas las empresas y entiedades relacionadas al comercio a través de internet.</p>
 								<p>La idea es similar a la de Black Friday en Estados Unidos, el Buen Fin en México o eventos similares alrededor del mundo donde se designan uno o varios días al año para ofrecer grandes descuentos e incentivar el consumo. Dicha actividad se fue llevando al plano electrónico en los últimos años.</p>
+								<img class="alignnone wp-image-173 size-full" src="http://porven.me/wp-content/uploads/2014/11/sanatorio-otamendi.jpg" alt="" width="1000" height="503">
 							</div>
 						</div>
 
-						<div class="card card_element">
+						<div id="card-3" class="card card_element">
 							<header>
-								<a target="_blank" class="permalink" href="#">#</a>
+								<span><strong>3</strong>/3</span>
 								<h3>¿Qu&eacute; empresas participan ofreciendo descuentos?</h3>
 							</header>
 							<div class="card_content">
-								<time>Hace 9 semanas</time>
+								<a target="_blank" class="permalink" href="#"><time>Hace 9 semanas</time></a>
 								<p>El evento es llevado a cabo por la Cámara Argentina de Comercio Electrónico (CACE) y es la tercera edición en nuestro país. La CACE fue creada en 1999 en el boom de las .com y tiene como objetivo nuclear a todas las empresas y entiedades relacionadas al comercio a través de internet.</p>
 								<p>La idea es similar a la de <a href="#">Black Friday</a> en Estados Unidos, el <strong>Buen Fin en México</strong> o eventos similares alrededor del mundo donde se designan uno o varios días al año para ofrecer grandes descuentos e incentivar el consumo. Dicha actividad se fue llevando al plano electrónico en los últimos años.</p>
 							</div>
@@ -79,7 +79,6 @@
 				<!--the-content-->
 
 				<div id="interaccion" class="post-list">
-				<hr class="hr-bar" />
 					<span>Interaccion</span>
 					<ul>
 						<li>
@@ -95,27 +94,7 @@
 				</div>
 			</div>
 			<!--the-post-->
-			<ul id="related-posts">
-				<li>
-					<a href="#" class="box-post">
-						<div style="background: #111 url(images/_image2.jpg) center center no-repeat; background-size: cover; height: 219px; margin-bottom: 10px;">&nbsp;</div>
-						<span>Hace una semana</span>
-						<h3>Buscan simplificar los tr&aacute;mites para alquilar en Rosario</h3>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="box-post">
-						<div style="background: #111 url(images/_image2.jpg) center center no-repeat; background-size: cover; height: 219px; margin-bottom: 10px;">&nbsp;</div>
-						<span>Ayer por la tarde</span>
-						<h3>Los festejos por el fin del ciclo lectivo dejaron al Monumento hecho un basural</h3>
-					</a>
-				</li>
-			</ul>
-			<!--related-posts-->
 		</div>
 		<!--content-->
-		<?php include'sidebar.php' ?>
+		<?php include'sidebar-dossier.php' ?>
 	</div>
-
-</div>
-<!--wrapper-->

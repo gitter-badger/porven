@@ -1,6 +1,21 @@
 $(document).ready(function(){
 
-$('.bxslider').bxSlider({
+    $.lockfixed("#sidebar .menu-fixed",{offset: {top: 30, bottom: 100}});
+
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
+
+    $('.bxslider').bxSlider({
         /*
         To add class on the first visible slide you have to call onSliderLoad. Then you continue adding and removing active-slide class with onSlideAfter call.
         */

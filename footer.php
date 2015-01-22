@@ -66,10 +66,9 @@
 </footer>
 </div>
 </div>
-	<?php if( $post_format == 'multimedia' ) { // Carga jQuery y el JS del slide solo en galería?>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="<?php bloginfo('template_url') ?>/js/jquery.bxslider.js"></script>
-	<?php } ?>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/jquery.lockfixed.js"></script>
+	<script src="<?php bloginfo('template_url') ?>/js/jquery.bxslider.js"></script>
 	<script src="<?php bloginfo('template_url') ?>/js/global.js"></script>
 
 	<script>
