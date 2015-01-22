@@ -33,8 +33,7 @@
 				<?php } else { $no_image = 1; } ?>
 
 				</div>
-				<div class="clear metadata-entrada">
-					<div id="metadata"<?php if($no_image == 1) { echo ' class="no-image"'; } ?>>
+
 				<div class="clear metadata-entrada<?php if($no_image == 1) { echo ' no-image'; } ?>">
 					<div id="metadata"<?php if(get_field('mostrar_autor')) {} else { echo ' class="no-author"'; } ?>>
 						<?php if(get_field('mostrar_autor')) { ?><?php $author_email = get_the_author_meta('user_email'); echo get_avatar($author_email, 50) ?><?php } ?>
