@@ -2538,14 +2538,14 @@ aside#sidebar {
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
 .bx-wrapper .bx-prev {
-	left: -55px;
-	background: url(../images/arrow-left.png) no-repeat center 10%;
+	left: -65px;
+	background: url(../images/arrow-left.png) no-repeat center center;
 
 }
 
 .bx-wrapper .bx-next {
-	right: -55px;
-	background: url(../images/arrow-right.png) no-repeat center 10%;
+	right: -65px;
+	background: url(../images/arrow-right.png) no-repeat center center;
 }
 
 
@@ -2558,15 +2558,13 @@ aside#sidebar {
 }
 
 .bx-wrapper .bx-controls-direction a {
-	position: absolute;
-	top: 0;	
 	outline: 0;
-	width: 60px;
+	width: 58px;
 	height: 32px;
 	text-indent: -9999px;
-	z-index: 9999;
-	height: 2000px;
-	align-items: flex-start;
+	padding: 30px 20px 30px 20px;
+	position: absolute;
+	top: 45%;
 }
 
 
