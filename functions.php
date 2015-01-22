@@ -51,7 +51,7 @@ function add_new_card_columns($card_columns) {
 }
 
 // Human diff time
-function curated_human_time_diff( $from, $to = '' ) {
+function curated_human_time_diff( $from, $to = '', $format = '' ) {
   if ( empty( $to ) ) {
     $to = time();
   }
@@ -63,32 +63,56 @@ function curated_human_time_diff( $from, $to = '' ) {
     if ( $mins <= 1 )
       $mins = 1;
     /* translators: min=minute */
-    $since = 'Hace '.sprintf( _n( 'instantes', '%s minutos', $mins ), $mins );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'instantes', '%s minutos', $mins ), $mins );
+    } else {
+      $since = 'Hace '.sprintf( _n( 'instantes', '%s minutos', $mins ), $mins );
+    }
   } elseif ( $diff < DAY_IN_SECONDS && $diff >= HOUR_IN_SECONDS ) {
     $hours = round( $diff / HOUR_IN_SECONDS );
     if ( $hours <= 1 )
       $hours = 1;
-    $since = 'Hace '.sprintf( _n( 'una hora', '%s horas', $hours ), $hours );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'una hora', '%s horas', $hours ), $hours );
+    } else {
+      $since = 'Hace '.sprintf( _n( 'una hora', '%s horas', $hours ), $hours );
+    }
   } elseif ( $diff < WEEK_IN_SECONDS && $diff >= DAY_IN_SECONDS ) {
     $days = round( $diff / DAY_IN_SECONDS );
     if ( $days <= 1 )
       $days = 1;
-    $since = sprintf( _n( 'Ayer', 'Hace %s d&iacute;as', $days ), $days );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'ayer', '%s d&iacute;as', $days ), $days );
+    } else {
+      $since = sprintf( _n( 'Ayer', 'Hace %s d&iacute;as', $days ), $days );
+    }
   } elseif ( $diff < 30 * DAY_IN_SECONDS && $diff >= WEEK_IN_SECONDS ) {
     $weeks = round( $diff / WEEK_IN_SECONDS );
     if ( $weeks <= 1 )
       $weeks = 1;
-    $since = 'Hace '.sprintf( _n( 'una semana', '%s semanas', $weeks ), $weeks );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'una semana', '%s semanas', $weeks ), $weeks );
+    } else {
+      $since = 'Hace '.sprintf( _n( 'una semana', '%s semanas', $weeks ), $weeks );
+    }
   } elseif ( $diff < YEAR_IN_SECONDS && $diff >= 30 * DAY_IN_SECONDS ) {
     $months = round( $diff / ( 30 * DAY_IN_SECONDS ) );
     if ( $months <= 1 )
       $months = 1;
-    $since = 'Hace '.sprintf( _n( 'un mes', '%s meses', $months ), $months );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'un mes', '%s meses', $months ), $months );
+    } else {
+      $since = 'Hace '.sprintf( _n( 'un mes', '%s meses', $months ), $months );
+    }
   } elseif ( $diff >= YEAR_IN_SECONDS ) {
     $years = round( $diff / YEAR_IN_SECONDS );
     if ( $years <= 1 )
       $years = 1;
-    $since = 'Hace '.sprintf( _n( 'un a&ntilde;o', '%s a&ntilde;os', $years ), $years );
+    if($format == 'clear') {
+      $since = sprintf( _n( 'un a&ntilde;o', '%s a&ntilde;os', $years ), $years );
+    } else {
+      $since = 'Hace '.sprintf( _n( 'un a&ntilde;o', '%s a&ntilde;os', $years ), $years );
+    }
   }
 
   return $since;
