@@ -184,6 +184,11 @@ strong, b {
 	margin: 15px 0 10px 0;
 }
 
+img.alignnone {
+	max-width: 100%;
+	height: auto;
+	margin: 10px 0;
+}
 .hidden-mobile {
 	display: none;
     @include at-breakpoint($tablet-v) { 
@@ -783,11 +788,18 @@ header#site-header {
 			}
 		}
     }
+    &.no-author {
+    	height: 30px;
+	    @include at-breakpoint($tablet-v) {
+	    	height: 50px;
+	    }
+    }
 }
 .metadata-entrada {
 	border-bottom: 1px solid $box-border;
     &.no-image {
     	border-top: 1px solid $box-border;
+    	padding-top: 20px;
     }
 }
 
@@ -1272,7 +1284,7 @@ header#site-header {
 					font-size: 24px;
 					color: #d9d9d9;
 				}
-				span {
+				> span {
 					font-family: $fira;
 					font-style: italic;
 					font-weight: bold;
@@ -1318,7 +1330,7 @@ header#site-header {
 		    }
 			.comments-share {
 				margin-top: 9px;
-				span {
+				> span {
 					display: inline-block;
 					margin-top: 0;
 					margin-left: 5px;
@@ -1683,7 +1695,7 @@ header#site-header {
 		margin-top: 0px;
 		font-size: 17px;
 		line-height: 150%;
-		color: $color-text-alt;
+		color: $color-text;
 		p {
 			margin-bottom: 15px;
 		}
@@ -1725,7 +1737,6 @@ header#site-header {
 			position: relative;
 			top: 1px;
 			float: right;
-			letter-spacing: 0.2em;
 		}
 	}
 
@@ -1744,6 +1755,9 @@ header#site-header {
 			color: $color-text-aside;
 			text-decoration: none;
 			margin-bottom: 10px;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 		.card, ul, ol, blockquote {
 			margin-bottom: 20px;
@@ -1754,11 +1768,6 @@ header#site-header {
 		}
 		p:last-child {
 			margin-bottom: 20px;
-		}
-		img.alignnone {
-			width: 100%;
-			height: auto;
-			margin: 10px 0;
 		}
 	}
 }
@@ -2191,7 +2200,6 @@ aside#sidebar {
 		padding: 0 0 90px 0;
 	}	
 	#interaccion {
-		border-top: 1px solid $box-border;
 		margin-top: 30px;
 		@include at-breakpoint($tablet-v) {
 			margin-top: 40px;
