@@ -9,6 +9,7 @@
 		        'taxonomy' => 'formatos',
 		        'term' => 'multimedia'
 		);
+		$cebra = 1;
 		query_posts($args); while (have_posts()) : the_post();
 
 		// Llamamos al thumbnail
@@ -26,6 +27,15 @@
 			</a>
 		</li>
 
-	<?php } endwhile; wp_reset_query(); ?>
+
+
+	<?php 
+
+		if ($cebra/2 == floor($cebra/2)) {
+			echo ' <div class="clear"></div>';
+		}
+		$cebra++;
+
+	} endwhile; wp_reset_query(); ?>
 
 </ul>
