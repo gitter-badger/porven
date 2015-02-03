@@ -51,24 +51,25 @@ $computer: 1200px 12;
   speak: none;
 }
 
-.icon-facebook:before { content: '\e800'; } /* '' */
-.icon-twitter:before { content: '\e801'; } /* '' */
-.icon-gplus:before { content: '\e802'; } /* '' */
-.icon-youtube:before { content: '\e803'; } /* '' */
-.icon-mail-alt:before { content: '\e804'; } /* '' */
-.icon-rss:before { content: '\e805'; } /* '' */
-.icon-search:before { content: '\e806'; } /* '' */
-.icon-menu:before { content: '\e807'; } /* '' */
-.icon-location:before { content: '\e808'; } /* '' */
-.icon-share:before { content: '\e809'; } /* '' */
-.icon-chat:before { content: '\e80a'; } /* '' */
-.icon-link:before { content: '\e80b'; } /* '' */
-.icon-facebook-squared:before { content: '\e80c'; } /* '' */
-.icon-play:before { content: '\e80d'; } /* '' */
-.icon-logo-whatsapp:before { content: '\e80e'; } /* '' */
-.icon-soundcloud:before { content: '\e80f'; } /* '' */
-.icon-pinterest-circled:before { content: '\e810'; } /* '' */
-.icon-instagramm:before { content: '\e811'; } /* '' */
+.icon-pencil:before { content: '\e800'; } /* '' */
+.icon-facebook:before { content: '\e801'; } /* '' */
+.icon-twitter:before { content: '\e802'; } /* '' */
+.icon-gplus:before { content: '\e803'; } /* '' */
+.icon-youtube:before { content: '\e804'; } /* '' */
+.icon-mail-alt:before { content: '\e805'; } /* '' */
+.icon-rss:before { content: '\e806'; } /* '' */
+.icon-search:before { content: '\e807'; } /* '' */
+.icon-menu:before { content: '\e808'; } /* '' */
+.icon-location:before { content: '\e809'; } /* '' */
+.icon-share:before { content: '\e80a'; } /* '' */
+.icon-chat:before { content: '\e80b'; } /* '' */
+.icon-link:before { content: '\e80c'; } /* '' */
+.icon-facebook-squared:before { content: '\e80d'; } /* '' */
+.icon-play:before { content: '\e80e'; } /* '' */
+.icon-logo-whatsapp:before { content: '\e80f'; } /* '' */
+.icon-soundcloud:before { content: '\e810'; } /* '' */
+.icon-pinterest-circled:before { content: '\e811'; } /* '' */
+.icon-instagramm:before { content: '\e812'; } /* '' */
 
 // Colores
 
@@ -89,9 +90,9 @@ $box-bg: #fafafa;
 
 // Fuentes
 
-$fira: 'Fira Sans', Helvetica, Arial, sans-serif;
-$lora: 'Fira Sans', Helvetica, Arial, sans-serif;
-$league: 'Fira Sans', Helvetica, Arial, sans-serif;
+$fira: 'Roboto', Helvetica, Arial, sans-serif;
+$lora: 'Roboto', Helvetica, Arial, sans-serif;
+$league: 'Roboto', Helvetica, Arial, sans-serif;
 $font-text: 'Asap', sans-serif;
 
 html, body{ overflow-x:hidden !important; }
@@ -1534,12 +1535,21 @@ header#site-header {
 		a.share-whatsapp { background: #1da110; }
 		a.share-gplus { background: #da5634; }
 		a.share-mail { background: #5b5b5b; }
+		a.custom { background: #5b5b5b; }
 		
 		a.share-facebook:hover { background: lighten(#3b5999, 5%); }
 		a.share-twitter:hover { background: lighten(#5ea9dd, 5%); }
 		a.share-whatsapp:hover { background: lighten(#1da110, 5%); }
 		a.share-gplus:hover { background: lighten(#da5634, 5%); }
 		a.share-mail:hover { background: lighten(#5b5b5b, 5%); }
+		a.custom:hover { background: lighten(#5b5b5b, 5%); }
+
+		a.custom {
+			display: none;
+			@include at-breakpoint($computer) {
+				display: inline;
+			}
+		}	
 	}
 }
 

@@ -68,7 +68,7 @@
 			c0,0-2.615,8.428-16.849,9.587c0,0,7.844,2.034,11.33,0.871c0,0-0.946,6.283-15.438,9.405c-0.859,0.183-6.643,1.631-1.996,2.213
 			c0,0,6.68,1.166,8.425,0.582c0,0-5.722,8.569-19.755,7.843c-1.38-0.072-2.036,0-2.036,0L363.656,55.562z"/>
 		</svg>
-		<time>Rosario, <span><?php the_time('l j') ?></span> de <?php the_time('F') ?> de <?php the_time('Y') ?></time>
+		<time>Rosario, <span><?php setlocale(LC_ALL,"es_ES"); $tildes = array('á', 'é'); $acute = array('&aacute;', '&eacute;'); echo str_replace($tildes, $acute, strftime("%A %e de %B del %Y")); ?>
 	</a>
 	
 	<ul id="site-options">
@@ -81,10 +81,10 @@
 		<input disabled="disabled" class="input-submit-search" type="submit" value=""/>
 	</form>
 	<ul id="social-profiles">
-		<li><a target="_blank" href="http://facebook.com/diarioporven"><i class="icon-facebook" title="Facebook"></i></a></li>
+		<li><a rel="nofollow" target="_blank" href="http://facebook.com/diarioporven"><i class="icon-facebook" title="Facebook"></i></a></li>
 		<li><a target="_blank" href="http://twitter.com/diarioporven"><i class="icon-twitter" title="Twitter"></i></a></li>
-		<li><a target="_blank" href="https://plus.google.com/u/0/b/108788771068142445588/108788771068142445588/posts"><i class="icon-gplus" title="Google Plus"></i></a></li>
-		<li><a target="_blank" href="http://porven.me/feed"><i  class="icon-rss" title="RSS"></i></a></li>
+		<li><a rel="nofollow" target="_blank" href="https://plus.google.com/u/0/b/108788771068142445588/108788771068142445588/posts"><i class="icon-gplus" title="Google Plus"></i></a></li>
+		<li><a rel="nofollow" target="_blank" href="http://porven.me/feed"><i  class="icon-rss" title="RSS"></i></a></li>
 	</ul>
 
 </header>

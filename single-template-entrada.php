@@ -64,7 +64,7 @@
 							echo $the_sub_field;
 							echo '</p><div class="right">
 								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.$the_sub_field.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="https://twitter.com/intent/tweet?text='.$the_sub_field.'&url='.get_the_permalink().'"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.$the_sub_field.'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
@@ -93,7 +93,7 @@
 
 					    	echo '</span></p><div class="right">
 								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="https://twitter.com/intent/tweet?text='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_the_permalink().'"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
@@ -118,7 +118,7 @@
 						<li>
 							<p><?php echo get_field('fuente') ?></p>
 							<div class="right">
-								<?php $fuente_url = get_field('fuente_url'); if(!empty($fuente)) { ?><a href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Link"></i></a><?php } ?>
+								<?php $fuente_url = get_field('fuente_url'); if(!empty($fuente)) { ?><a rel="nofollow" target="_blank" href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Enlace"></i></a><?php } ?>
 							</div>
 						</li>
 					</ul>

@@ -98,7 +98,7 @@
 						<li>
 							<p><?php echo get_field('fuente') ?></p>
 							<div class="right">
-								<?php $fuente_url = get_field('fuente_url'); if(!empty($fuente)) { ?><a href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Link"></i></a><?php } ?>
+								<?php $fuente_url = get_field('fuente_url'); if(!empty($fuente)) { ?><a rel="nofollow" target="_blank" href="<?php echo get_field('fuente_url') ?>"><i class="icon-link" title="Link"></i></a><?php } ?>
 							</div>
 						</li>
 					</ul>
