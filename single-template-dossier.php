@@ -1,5 +1,4 @@
 <div class="wrapper dossier">
-
 	<?php // Llamamos al thumbnail
 	if(has_post_thumbnail()) {
 	     $image_id = get_post_thumbnail_id();
@@ -61,3 +60,5 @@
 		<!--content-->
 		<?php include( TEMPLATEPATH . '/sidebar-dossier.php' ); ?>	
 	</div>
+</div>
+<!--wrapper-->

@@ -1,5 +1,4 @@
 <div class="wrapper">
-
 	<header id="header-post" class="header-post-multimedia">
 		<h1><?php the_title() ?></h1>
 
@@ -135,5 +134,5 @@
 	<!--content-->
 	<?php include'sidebar.php' ?>
 	<div class="clear">&nbsp;</div>
-
 </div>
+<!--wrapper-->

@@ -1,5 +1,4 @@
 <div class="wrapper">
-
 	<header id="header-post">
 		<time><?php echo curated_human_time_diff(get_the_time('U'), current_time('timestamp')); ?></time>
 		<h1><?php the_title() ?></h1>
