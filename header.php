@@ -68,7 +68,23 @@
 						c0,0-2.615,8.428-16.849,9.587c0,0,7.844,2.034,11.33,0.871c0,0-0.946,6.283-15.438,9.405c-0.859,0.183-6.643,1.631-1.996,2.213
 						c0,0,6.68,1.166,8.425,0.582c0,0-5.722,8.569-19.755,7.843c-1.38-0.072-2.036,0-2.036,0L363.656,55.562z"/>
 					</svg>
-					<time>Rosario, <span><?php setlocale(LC_ALL,"es_ES"); $tildes = array('á', 'é'); $acute = array('&aacute;', '&eacute;'); $fecha = strftime("%A %e de %B del %Y", time() - 3*60*60); echo str_replace($tildes, $acute, $fecha); ?></time>
+					<time>Rosario, <span>
+						<?php 
+						setlocale(LC_ALL,"es_ES"); 
+						$n_dia = strftime("%u", time() - 3*60*60);
+						$dia = array(
+								1 => 'lunes',
+								2 => 'martes',
+								3 => 'mi&eacute;rcoles',
+								4 => 'jueves',
+								5 => 'viernes',
+								6 => 's&aacute;bado',
+								7 => 'domingo'
+							);
+						echo $dia[$n_dia].' ';
+						echo strftime("%e de %B del %Y", time() - 3*60*60);
+						?>
+					</span></time>
 				</div>
 				<div id="barras-header">
 					<span class="barra-header barra-1">&nbsp;</span>
