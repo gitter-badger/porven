@@ -307,7 +307,9 @@ header#site-header {
 		display: block;
 		position: relative;
 		overflow: hidden;
-		width: 430px;
+		@include at-breakpoint($tablet-v) {
+			width: 390px;
+		}
 		@include pie-clearfix;
 	    #logo-header {
 			float: left;
@@ -353,7 +355,7 @@ header#site-header {
 			top: 0;
 			z-index: 3;
 			float: left;
-			width: 430px;
+			width: 100%;
 	    	@include at-breakpoint($tablet-v) {
 	    		display: block;
 			}
@@ -366,29 +368,19 @@ header#site-header {
 				position: absolute;
 			    @include transform(skew(-30deg));    
 				&.barra-1 {
-					width: 340px;
+					width: 350px;
 					background: $color-1;
 					z-index: 5;
 				}
 				&.barra-2 {
-					left: 340px;
+					left: 350px;
 					background: #c40a0a;
-				    -webkit-animation: show .6s; /* Safari, Chrome and Opera > 12.1 */
-			        -moz-animation: show .6s; /* Firefox < 16 */
-			        -ms-animation: show .6s; /* Internet Explorer */
-			        -o-animation: show .6s; /* Opera < 12.1 */
-			        animation: show .6s;
 					z-index: 3;
 					@include transition(all .6s ease);
 				}
 				&.barra-3 {
-					left: 360px;
+					left: 370px;
 					background: #ba0909;
-				    -webkit-animation: show2 .8s; /* Safari, Chrome and Opera > 12.1 */
-			        -moz-animation: show2 .8s; /* Firefox < 16 */
-			        -ms-animation: show2 .8s; /* Internet Explorer */
-			        -o-animation: show2 .8s; /* Opera < 12.1 */
-			        animation: show2 .8s;
 					z-index: 2;
 					@include transition(all .8s ease);
 				}
@@ -398,11 +390,11 @@ header#site-header {
 			#barras-header {
 				.barra-header {
 					&.barra-2 {
-						left: 300px;
+						left: 310px;
 						@include box-shadow(0 5px 10px rgba(0,0,0,0.05));
 					}
 					&.barra-3 {
-						left: 320px;
+						left: 330px;
 						@include box-shadow(0 5px 10px rgba(0,0,0,0.1));
 					}
 				}
@@ -535,108 +527,6 @@ header#site-header {
 			display: none;
 		}
 	}
-}
-
-/* Show */
-
-@keyframes show {
-    from { 
-    	left: 300px;  
-    }
-    to   { 
-    	left: 340px; 
-    }					
-}
-
-/* Firefox < 16 */
-@-moz-keyframes show {
-    from { 
-    	left: 300px;  
-    }
-    to   { 
-    	left: 340px; 
-    }	
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes show {
-    from { 
-    	left: 300px;  
-    }
-    to   { 
-    	left: 340px; 
-    }	
-}
-
-/* Internet Explorer */
-@-ms-keyframes show {
-    from { 
-    	left: 300px;  
-    }
-    to   { 
-    	left: 340px; 
-    }	
-}
-
-/* Opera < 12.1 */
-@-o-keyframes show {
-    from { 
-    	left: 300px;  
-    }
-    to   { 
-    	left: 340px; 
-    }	
-}
-
-/* Show2 */
-
-@keyframes show2 {
-    from { 
-    	left: 320px;  
-    }
-    to   { 
-    	left: 360px; 
-    }					
-}
-
-/* Firefox < 16 */
-@-moz-keyframes show2 {
-    from { 
-    	left: 320px;  
-    }
-    to   { 
-    	left: 360px; 
-    }		
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes show2 {
-    from { 
-    	left: 320px;  
-    }
-    to   { 
-    	left: 360px; 
-    }				
-}
-
-/* Internet Explorer */
-@-ms-keyframes show2 {
-    from { 
-    	left: 320px;  
-    }
-    to   { 
-    	left: 360px; 
-    }			
-}
-
-/* Opera < 12.1 */
-@-o-keyframes show2 {
-    from { 
-    	left: 320px;  
-    }
-    to   { 
-    	left: 360px; 
-    }		
 }
 
 /* Input placeholder */
@@ -1457,7 +1347,7 @@ header#site-header {
 				line-height: 120%;
 				font-size: 14px;
 				width: 75%;
-				margin-top: 4px;
+				margin-top: 3px;
 				@include at-breakpoint($mobile-h) {
 					width: 75%;
 				}
@@ -1479,6 +1369,7 @@ header#site-header {
 				float: left;
 				display: inline-block;
 				margin-right: 5px;
+				margin-top: 1px;
 			}
 			> .right {
 				margin-top: 2px;
