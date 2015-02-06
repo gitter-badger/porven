@@ -23,13 +23,15 @@ $computer: 1200px 12;
 
 // Webfonts
 
+
+
 @font-face {
   font-family: 'porven';
-  src: url('fonts/fontello/porven.eot?11080579');
-  src: url('fonts/fontello/porven.eot?11080579#iefix') format('embedded-opentype'),
-       url('fonts/fontello/porven.woff?11080579') format('woff'),
-       url('fonts/fontello/porven.ttf?11080579') format('truetype'),
-       url('fonts/fontello/porven.svg?11080579#porven') format('svg');
+  src: url('fonts/fontello/porven.eot?16694464');
+  src: url('fonts/fontello/porven.eot?16694464#iefix') format('embedded-opentype'),
+       url('fonts/fontello/porven.woff?16694464') format('woff'),
+       url('fonts/fontello/porven.ttf?16694464') format('truetype'),
+       url('fonts/fontello/porven.svg?16694464#porven') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -51,25 +53,26 @@ $computer: 1200px 12;
   speak: none;
 }
 
-.icon-pencil:before { content: '\e800'; } /* '' */
-.icon-facebook:before { content: '\e801'; } /* '' */
-.icon-twitter:before { content: '\e802'; } /* '' */
-.icon-gplus:before { content: '\e803'; } /* '' */
-.icon-youtube:before { content: '\e804'; } /* '' */
-.icon-mail-alt:before { content: '\e805'; } /* '' */
-.icon-rss:before { content: '\e806'; } /* '' */
-.icon-search:before { content: '\e807'; } /* '' */
-.icon-menu:before { content: '\e808'; } /* '' */
-.icon-location:before { content: '\e809'; } /* '' */
-.icon-share:before { content: '\e80a'; } /* '' */
-.icon-chat:before { content: '\e80b'; } /* '' */
-.icon-link:before { content: '\e80c'; } /* '' */
-.icon-facebook-squared:before { content: '\e80d'; } /* '' */
-.icon-play:before { content: '\e80e'; } /* '' */
-.icon-logo-whatsapp:before { content: '\e80f'; } /* '' */
-.icon-soundcloud:before { content: '\e810'; } /* '' */
-.icon-pinterest-circled:before { content: '\e811'; } /* '' */
-.icon-instagramm:before { content: '\e812'; } /* '' */
+.icon-pencil:before { content: '\e805'; } /* '' */
+.icon-facebook:before { content: '\e804'; } /* '' */
+.icon-twitter:before { content: '\e803'; } /* '' */
+.icon-gplus:before { content: '\e800'; } /* '' */
+.icon-youtube:before { content: '\e801'; } /* '' */
+.icon-mail-alt:before { content: '\e802'; } /* '' */
+.icon-rss:before { content: '\e819'; } /* '' */
+.icon-search:before { content: '\e81a'; } /* '' */
+.icon-menu:before { content: '\e81b'; } /* '' */
+.icon-location:before { content: '\e81c'; } /* '' */
+.icon-share:before { content: '\e81d'; } /* '' */
+.icon-chat:before { content: '\e81e'; } /* '' */
+.icon-link:before { content: '\e81f'; } /* '' */
+.icon-facebook-squared:before { content: '\e820'; } /* '' */
+.icon-play:before { content: '\e821'; } /* '' */
+.icon-logo-whatsapp:before { content: '\e806'; } /* '' */
+.icon-soundcloud:before { content: '\e823'; } /* '' */
+.icon-pinterest-circled:before { content: '\e824'; } /* '' */
+.icon-instagramm:before { content: '\e825'; } /* '' */
+.icon-picture:before { content: '\e807'; } /* '' */
 
 // Colores
 
@@ -629,7 +632,7 @@ header#site-header {
 		padding: 0 $gutter-width 0 $gutter-width;
 		letter-spacing: -0.025em;
 		text-align: left;
-		line-height: 120%;
+		line-height: 100%;
 	    @include at-breakpoint($tablet-v) {
 			text-align: center;
 			line-height: 95%;
