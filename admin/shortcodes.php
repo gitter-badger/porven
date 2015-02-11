@@ -1,7 +1,7 @@
 <?php
 
 function sc_twitter($atts) {
-     $sc_return = '<div class="card card_twitter"><i class="icon-twitter"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content"><div class="tweet-container">';
+     $sc_return = '<div class="card card_twitter"><i class="icon-twitter"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content"><div class="tweet-container">';
      $sc_return .= '<blockquote class="twitter-tweet" lang="es"><a href="'.$atts['url'].'"></a></blockquote>';
      $sc_return .= '</div></div></div>';
 
@@ -10,7 +10,7 @@ function sc_twitter($atts) {
 add_shortcode('twitter', 'sc_twitter');
 
 function sc_facebook($atts) {
-     $sc_return = '<div class="card card_facebook"><i class="icon-facebook-squared"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_facebook"><i class="icon-facebook-squared"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<div id="fb-root"></div><div class="fb-post" data-href="';
      $sc_return .= $atts['url'];
      $sc_return .= '" data-width="500px"><div class="fb-xfbml-parse-ignore"></div></div>';
@@ -31,7 +31,7 @@ function sc_youtube($atts) {
      }
 
      else {
-          $sc_return = '<div class="card card_youtube"><i class="icon-play"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+          $sc_return = '<div class="card card_youtube"><i class="icon-play"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
           $sc_return .= '<div class="youtube-embed-container"><iframe width="100%" src="//www.youtube.com/embed/';
           $sc_return .= $video_code[1];
           $sc_return .= '" frameborder="0" allowfullscreen></iframe></div>';
@@ -44,7 +44,7 @@ add_shortcode('youtube', 'sc_youtube');
 
 function sc_img($atts) {
      if(empty($atts['url'])) {$atts['url'] = $atts['src'];}
-     $sc_return = '<div class="card card_img"><i class="icon-picture"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_img"><i class="icon-picture"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<img width="100%" src="'.$atts['src'].'" />';
      $sc_return .= '</div></div>';
 
@@ -54,7 +54,7 @@ add_shortcode('img', 'sc_img');
 
 function sc_vine($atts) {
      $video_code = explode('/v/', $atts['url']);
-     $sc_return = '<div class="card card_vine"><i class="icon-play"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_vine"><i class="icon-play"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<div class="vine-embed-container"><iframe class="vine-embed" src="https://vine.co/v/'.$video_code[1].'/embed/simple?related=0" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>';
      $sc_return .= '</div></div>';
 
@@ -63,7 +63,7 @@ function sc_vine($atts) {
 add_shortcode('vine', 'sc_vine');
 
 function sc_instagram($atts) {
-     $sc_return = '<div class="card card_instagram"><i class="icon-instagramm"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_instagram"><i class="icon-instagramm"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      //$sc_return .= '<img src="'.$atts['url'].'media/?size=l" width="100%" alt="" />';
      $sc_return .= '<div class="instagram-embed-container"><iframe src="'.$atts['url'].'/embed" width="100%" scrolling="no" allowtransparency="true"></iframe></div>';
      $sc_return .= '</div></div>';
@@ -73,7 +73,7 @@ function sc_instagram($atts) {
 add_shortcode('instagram', 'sc_instagram');
 
 function sc_googleplus($atts) {
-     $sc_return = '<div class="card card_googleplus"><i class="icon-gplus"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_googleplus"><i class="icon-gplus"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<div class="g-post" data-href="'.$atts['url'].'"></div>';
      $sc_return .= '</div></div>';
 
@@ -82,7 +82,7 @@ function sc_googleplus($atts) {
 add_shortcode('googleplus', 'sc_googleplus');
 
 function sc_soundcloud($atts) {
-     $sc_return = '<div class="card card_soundcloud"><i class="icon-soundcloud"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_soundcloud"><i class="icon-soundcloud"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<iframe width="100%" height="130" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='.$atts['url'].'&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>';
      $sc_return .= '</div></div>';
 
@@ -91,7 +91,7 @@ function sc_soundcloud($atts) {
 add_shortcode('soundcloud', 'sc_soundcloud');
 
 function sc_pinterest($atts) {
-     $sc_return = '<div class="card card_pinterest"><i class="icon-pinterest-circled"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanante</a><div class="card_content">';
+     $sc_return = '<div class="card card_pinterest"><i class="icon-pinterest-circled"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$atts['url'].'">Enlace permanente</a><div class="card_content">';
      $sc_return .= '<a data-pin-do="embedPin" href="'.$atts['url'].'"></a>';
      $sc_return .= '</div></div>';
 
@@ -107,7 +107,7 @@ function sc_quote($atts, $content = null) {
      } else {
           $url_quote = "";
      }     
-     $sc_return = '<div class="card card_quote"><span>'.$atts['source'].'</span><a rel="nofollow" target="_blank" class="permalink" href="'.$url_quote.'">Enlace permanante</a><hr class="divider" /><div class="card_content">';
+     $sc_return = '<div class="card card_quote"><span>'.$atts['source'].'</span><a rel="nofollow" target="_blank" class="permalink" href="'.$url_quote.'">Enlace permanente</a><hr class="divider" /><div class="card_content">';
      $sc_return .= $content;
      $sc_return .= '</div></div>';
 

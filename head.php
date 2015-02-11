@@ -20,7 +20,7 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 	</title>
 	<link href="<?php bloginfo('template_url') ?>/css/jquery.bxslider.css" rel="stylesheet" />
     <link href="<?php bloginfo('template_url') ?>/css/screen.css?v=1" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Asap:400,700,700italic,400italic|Roboto:400,400italic,700,700italic,300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic|Roboto+Condensed:300italic,400italic,700italic,400,700,300|Roboto:500,400italic,700italic,300,700,500italic,300italic,400' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo('template_url') ?>/images/favicon.ico">
 
