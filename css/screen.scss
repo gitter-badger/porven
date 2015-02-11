@@ -97,6 +97,7 @@ $fira: 'Roboto', Helvetica, Arial, sans-serif;
 $lora: 'Roboto', Helvetica, Arial, sans-serif;
 $league: 'Roboto', Helvetica, Arial, sans-serif;
 $font-text: 'Asap', sans-serif;
+$roboto-condensed: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 
 html, body{ overflow-x:hidden !important; }
 
@@ -261,6 +262,7 @@ img.alignnone {
 
 #top {
 	font-size: 11px;
+	font-family: $roboto-condensed;
 	@include pie-clearfix;
     @include at-breakpoint($tablet-h) { 
 		/*padding: 11px 0 9px;*/
@@ -339,6 +341,7 @@ header#site-header {
 			time {
 				color: #fff;
 				font-size: 11px;
+				font-family: $roboto-condensed;
 				display: none;
 		    	@include at-breakpoint($tablet-v) {
 		    		display: block;
@@ -486,6 +489,7 @@ header#site-header {
 			padding: 10px 50px 10px 20px;	
 			color: #fff;
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			@include transition(all .2s ease);
 			&:focus {
 				color: $color-text-alt;
@@ -632,7 +636,7 @@ header#site-header {
 		padding: 0 $gutter-width 0 $gutter-width;
 		letter-spacing: -0.025em;
 		text-align: left;
-		line-height: 100%;
+		line-height: 105%;
 	    @include at-breakpoint($tablet-v) {
 			text-align: center;
 			line-height: 95%;
@@ -648,6 +652,7 @@ header#site-header {
 	time {
 		color: $color-text-alt;
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		display: block;
 		margin-bottom: 15px;
 		text-align: left;
@@ -660,6 +665,7 @@ header#site-header {
 	.categorie-post a {
 		text-transform: uppercase;
 		font-size: 10px;
+		font-family: $roboto-condensed;
 		color: $color-text-alt;
 		letter-spacing: 0.20em;
 		border: 1px solid #d9d9d9;
@@ -761,6 +767,7 @@ header#site-header {
 			float: none;
 			color: $color-text-alt;
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			display: block;
 			margin: 0 0 10px 0;
 		    @include at-breakpoint($tablet-v) {
@@ -871,6 +878,7 @@ header#site-header {
 	-ms-flex-pack: center;
 	height: 50px;
 	font-size: 11px;
+	font-family: $roboto-condensed;
 	color: $color-text-aside;
 	margin: 0 $gutter-width 0 $gutter-width;
 	@include pie-clearfix;
@@ -894,6 +902,7 @@ header#site-header {
 	    }
 	    time {
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			color: $color-text-alt;
 			display: block;
 			line-height: 110%;
@@ -901,6 +910,7 @@ header#site-header {
 	    }
 		span {
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			color: $color-text-alt;
 			line-height: 110%;
 			display: block;
@@ -995,6 +1005,7 @@ header#site-header {
 	p {
 		color: $color-text-alt;
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		border-bottom: 1px solid #d9d9d9;
 		padding-bottom: 8px;
 		padding-left: $gutter-width;
@@ -1180,6 +1191,7 @@ header#site-header {
 			margin-bottom: 5px;
 			display: inline-block;
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			background: rgba(31,31,31,.95);
 			padding: 3px 5px;
 			color: #fff;
@@ -1296,6 +1308,7 @@ header#site-header {
 	display: block;
 	span {
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		color: $color-text-alt;
 		margin-bottom: 5px;
 		display: block;
@@ -1321,6 +1334,7 @@ header#site-header {
 	> span {
 		display: none;
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		color: $color-text-alt;
 		float: left;
 		margin: 17px 10px 0 $gutter-width;
@@ -1616,7 +1630,7 @@ header#site-header {
 			text-decoration: none;
 			overflow: hidden;
 			color: #fff;
-			font-family: $fira;
+			font-family: $roboto-condensed;
 			font-size: 12px;
 			cursor: pointer;
 			@include transition(background .2s ease);
@@ -1693,6 +1707,7 @@ header#site-header {
 	a.permalink {
 		float: right;
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		color: $color-text-alt;
 		text-decoration: underline;
 	}
@@ -1867,6 +1882,7 @@ header#site-header {
 			color: #fff;
 			text-decoration: none;
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			padding: 5px;
 			margin-right: 10px;
 			position: relative;
@@ -1887,6 +1903,7 @@ header#site-header {
 			float: none;
 			display: block;
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			color: $color-text-aside;
 			text-decoration: none;
 			margin-bottom: 10px;
@@ -1939,6 +1956,7 @@ footer#site-footer {
 	    } 
 		ul {
 		font-size: 9px;
+		font-family: $roboto-condensed;
 		@include at-breakpoint($tablet-v) { 
 			font-size: 11px;
 		} 
@@ -1988,6 +2006,7 @@ footer#site-footer {
 		display: block;
 		width: 100%;
 		font-size: 11px;
+		font-family: $roboto-condensed;
 		line-height: 120%;
 		text-align: center;
 		color: $color-text-alt;
@@ -2206,9 +2225,10 @@ aside#sidebar {
 	 #site-header.header-longform {
 		background-color: $color-text;
 		height: 400px;
-		padding: 0 !important;
+		padding: 20px 0 0 0!important;
 		position: relative;
 		overflow: hidden;
+		border: none;
 		@include at-breakpoint($tablet-h) {
 			height: 500px;
 		}						
@@ -2267,6 +2287,7 @@ aside#sidebar {
 				margin-left: 0;
 			}	
 			#logo-header {
+				padding: 0;
 				width: 140px;
 				height: 19px;
 				@include at-breakpoint($tablet-h) {
@@ -2327,6 +2348,7 @@ aside#sidebar {
 				margin: 0 auto;
 				width: 200px;
 				font-size: 11px;
+				font-family: $roboto-condensed;
 				letter-spacing: 0.15em;
 				text-transform: uppercase;
 				em {
@@ -2576,6 +2598,7 @@ aside#sidebar {
 	.longform-picture {
 		figcaption {
 			font-size: 11px;
+			font-family: $roboto-condensed;
 			padding: 7px $gutter-width;
 			border-bottom: 1px solid $box-border;
 			color: $color-text-aside;
