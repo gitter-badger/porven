@@ -1,31 +1,45 @@
 /*
-Error: Invalid CSS after "@import "base"": expected "{", was ";"
-        on line 2848 of /Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss
+Error: Invalid CSS after "": expected selector, was "<<<<<<< HEAD"
+        on line 28 of /Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss
 
-2843: 	display: block;
-2844: 	font-size: .85em;
-2845: 	padding: 10px;
-2846: }
-2847: =======
-2848: @import "base";
-2849: 
-2850: //Structure 
-2851: 
-2852: $total-columns : 4; // a 12-column grid 
-2853: $column-width : 5.23rem; // each column is 4em wide 
+23: 
+24: // Webfonts
+25: 
+26: 
+27: 
+28: <<<<<<< HEAD
+29: @font-face {
+30:   font-family: 'porven';
+31:   src: url('fonts/fontello/porven.eot?16694464');
+32:   src: url('fonts/fontello/porven.eot?16694464#iefix') format('embedded-opentype'),
+33:        url('fonts/fontello/porven.woff?16694464') format('woff'),
 
 Backtrace:
-/Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss:2848
+/Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss:28
 /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:1163:in `expected'
 /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:1099:in `expected'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:1094:in `tok!'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:641:in `block'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:635:in `ruleset'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:660:in `block_child'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:653:in `block_contents'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:42:in `parse'
-/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/engine.rb:393:in `_to_tree'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/parser.rb:1079:in `expr!'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/scss/static_parser.rb:20:in `parse_selector'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:414:in `visit_rule'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/stack.rb:79:in `block in with_base'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/stack.rb:115:in `with_frame'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/stack.rb:79:in `with_base'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:52:in `map'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/tree/root_node.rb:20:in `render'
 /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/engine.rb:268:in `render'
 /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/plugin/compiler.rb:491:in `update_stylesheet'
 /Applications/Prepros.app/Contents/Resources/app/ruby/ruby_gems/gems/sass-3.4.6/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
@@ -46,4 +60,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"@import \"base\"\": expected \"{\", was \";\"\A         on line 2848 of /Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss\A \A 2843: 	display: block;\A 2844: 	font-size: .85em;\A 2845: 	padding: 10px;\A 2846: }\A 2847: =======\A 2848: @import \"base\";\A 2849: \A 2850: //Structure \A 2851: \A 2852: $total-columns : 4; // a 12-column grid \A 2853: $column-width : 5.23rem; // each column is 4em wide "; }
+  content: "Error: Invalid CSS after \"\": expected selector, was \"<<<<<<< HEAD\"\A         on line 28 of /Applications/XAMPP/xamppfiles/htdocs/porven/wp-content/themes/porven/css/screen.scss\A \A 23: \A 24: // Webfonts\A 25: \A 26: \A 27: \A 28: <<<<<<< HEAD\A 29: @font-face {\A 30:   font-family: 'porven';\A 31:   src: url('fonts/fontello/porven.eot?16694464');\A 32:   src: url('fonts/fontello/porven.eot?16694464#iefix') format('embedded-opentype'),\A 33:        url('fonts/fontello/porven.woff?16694464') format('woff'),"; }
