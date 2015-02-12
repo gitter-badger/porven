@@ -77,22 +77,40 @@
 						echo '<div id="datos" class="post-list"><span>Datos</span><ul>';
 					    while ( have_rows('datos') ) : the_row();
 
-					        echo '<li><p><strong>'.get_sub_field('valor').'</strong> <span>';
+					    	if(substr(get_sub_field('valor'), -6) == '000000') {
+					    		$millon = 'de ';
+					    		if(get_sub_field('valor') == '1000000') {
+					    			$valor = '1 mill&oacute;n';
+					    		} else {
+					    			$valor =  substr(get_sub_field('valor'), 0, -6).' millones';
+					    		}
+					    	} elseif(substr(get_sub_field('valor'), -3) == '000') {
+					    		unset($millon);
+					    		if(get_sub_field('valor') == '1000') {
+					    			$valor = 'Mil';
+					    		} else {
+					    			$valor =  substr(get_sub_field('valor'), 0, -3).' mil';
+					    		}
+					    	} else {
+					    		unset($millon);
+					    		$valor =  get_sub_field('valor');
+					    	}
+					        echo '<li><p><strong>'.$valor.'</strong> <span>';
 					        $term = get_term( get_sub_field('dato'), 'datos');
 					        $subterm_adaptacion = get_sub_field('adaptacion');
 					        if(!empty($subterm_adaptacion)) {
-					        	$dato_print = $subterm_adaptacion;
+					        	$dato_print = $millon.$subterm_adaptacion;
 					        } elseif( $term->name == 'Otro' ) {
 					        	$dato_print = get_sub_field('otro');
 					        } else {
-					        	$dato_print = $term->name;
+					        	$dato_print = $millon.lcfirst($term->name);
 					    	}
 
 					    	echo $dato_print;
 
 					    	echo '</span></p><div class="right">
-								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="https://twitter.com/intent/tweet?text='.get_sub_field('valor').' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.$valor.' '.$dato_print.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.$valor.' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
