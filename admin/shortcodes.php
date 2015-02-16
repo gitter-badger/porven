@@ -99,6 +99,20 @@ function sc_pinterest($atts) {
 }
 add_shortcode('pinterest', 'sc_pinterest');
 
+function sc_trend($atts) {
+     $q = str_replace(' ', '+', $atts['q']);
+     if(!empty($atts['months'])) { $date = '&date=today+'.$atts['months'].'-m'; }
+     if(!empty($atts['geo'])) { $geo = '&geo='.$atts['geo']; }
+     $url = '//www.google.com.ar/trends/fetchComponent?hl=es-419&q='.$q.$date.$geo;
+     $permalink = 'http://www.google.com.ar/trends/explore#q='.$q.$date.$geo.'&hl=es-419';
+     $sc_return = '<div class="card card_trend"><i class="icon-trend"></i><a rel="nofollow" target="_blank" class="permalink" href="'.$permalink.'">Enlace permanente</a><div class="card_content">';
+     $sc_return .= '<iframe scrolling="auto" style="border:none;" width="100%" height="380" src="'.$url.'&content=1&cid=TIMESERIES_GRAPH_0&export=5"></iframe>';
+     $sc_return .= '</div></div>';
+
+     return $sc_return;
+}
+add_shortcode('trend', 'sc_trend');
+
 // Quote
 
 function sc_quote($atts, $content = null) {

@@ -63,7 +63,7 @@
 							echo $the_sub_field;
 							echo '</p><div class="right">
 								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.$the_sub_field.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="https://twitter.com/intent/tweet?text='.$the_sub_field.'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.str_replace('%', '%25', $the_sub_field).'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;
@@ -93,7 +93,8 @@
 					    		}
 					    	} else {
 					    		unset($millon);
-					    		$valor =  get_sub_field('valor');
+					    		//$numero, 2, ",", ".");
+					    		$valor =  number_format(get_sub_field('valor'), 0, "", ".");
 					    	}
 					        echo '<li><p><strong>'.$valor.'</strong> <span>';
 					        $term = get_term( get_sub_field('dato'), 'datos');
@@ -110,7 +111,7 @@
 
 					    	echo '</span></p><div class="right">
 								<a href="https://www.facebook.com/dialog/feed?app_id=1479463332330420&display=page&link='.get_the_permalink().'&redirect_uri='.get_the_permalink().'&description='.$valor.' '.$dato_print.' &mdash; '.get_the_excerpt().'"><i class="icon-facebook" title="Facebook"></i></a>
-								<a href="https://twitter.com/intent/tweet?text='.$valor.' '.$dato_print.' &mdash; '.get_the_title().'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
+								<a href="https://twitter.com/intent/tweet?text='.$valor.' '.str_replace('%', '%25', $dato_print).' &mdash; '.str_replace('%', '%25', get_the_title()).'&url='.get_bloginfo('url').'/n/'.get_the_ID().'"><i class="icon-twitter" title="Twitter"></i></a>
 							</div></li>';
 
 					   endwhile;

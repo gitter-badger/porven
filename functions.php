@@ -4,6 +4,7 @@
 
 	// CPT
 	require_once( TEMPLATEPATH . '/admin/cpt-cards.php');
+  require_once( TEMPLATEPATH . '/admin/cpt-hechos.php');
 
 	// Taxonomy
 	require_once( TEMPLATEPATH . '/admin/tax-zonas.php');
@@ -27,11 +28,11 @@ if ( function_exists( 'add_image_size' ) ) {
 
 // Columnas a cards
 add_filter('manage_edit-card_columns', 'add_new_card_columns');
-add_action('manage_posts_custom_column', 'posts_custom_id_columns', 5, 2);
+add_action('manage_posts_custom_column', 'posts_custom_id_columns_card', 5, 2);
 
-function posts_custom_id_columns($column_name, $id){
-        if($column_name === 'id'){
-                echo $id;
+function posts_custom_id_columns_card($column_name, $id){
+    if($column_name === 'id'){
+      echo $id;
     }
 }
 
@@ -49,6 +50,43 @@ function add_new_card_columns($card_columns) {
  
     return $new_columns;
 }
+
+// Columnas a hechos
+add_filter('manage_edit-hecho_columns', 'add_new_hecho_columns');
+add_action('manage_posts_custom_column', 'posts_custom_content_columns_hecho', 5, 2);
+
+function posts_custom_content_columns_hecho($column_name, $id){
+global $wpdb;
+  if($column_name === 'content'){
+    echo get_the_excerpt();
+  }
+}
+
+function add_new_hecho_columns($hecho_columns) {
+    $new_columns['cb'] = '<input type="checkbox" />';
+     
+    $new_columns['title'] = _x('Hecho', 'column name');
+    $new_columns['content'] = __('Content');     
+    $new_columns['id'] = __('ID');
+
+
+    $new_columns['categories'] = __('Categories');
+ 
+    $new_columns['date'] = _x('Date', 'column name');
+ 
+    return $new_columns;
+}
+
+// Cambiar nombre a hechos 
+function custom_post_type_title ( $post_id ) {
+    global $wpdb;
+    if ( get_post_type( $post_id ) == 'hecho' ) {
+        $title = 'Hecho #'.$post_id;
+        $where = array( 'ID' => $post_id );
+        $wpdb->update( $wpdb->posts, array( 'post_title' => $title ), $where );
+    }
+}
+add_action( 'save_post', 'custom_post_type_title' );
 
 // Human diff time
 function curated_human_time_diff( $from, $to = '', $format = '' ) {
