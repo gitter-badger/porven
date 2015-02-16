@@ -1092,6 +1092,10 @@ header#site-header {
 
 	#the-content .post-content {
 		>p {
+			/* Improve rendering */
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+			text-rendering: optimizeLegibility !important;
+			-webkit-font-smoothing: antialiased !important;
 			margin-bottom: 20px;
 			line-height: 140%;
 			@include at-breakpoint($mobile-h) {
@@ -2027,6 +2031,9 @@ header#site-header {
 			margin-bottom: 20px;
 		}
 		p {
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+			text-rendering: optimizeLegibility !important;
+			-webkit-font-smoothing: antialiased !important;		
 			margin-bottom: 15px;
 			line-height: 150%;
 		}
@@ -2218,6 +2225,9 @@ aside#sidebar {
 			}
 		}
 		p {
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+			text-rendering: optimizeLegibility !important;
+			-webkit-font-smoothing: antialiased !important;
 			line-height: 140%;
 			font-size: 16px;
 			margin-bottom: 30px;

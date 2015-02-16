@@ -4,7 +4,7 @@
 		<ul>
 			<li><a href="#">Contacto</a></li>
 			<li><a href="#">Publicite</a></li>
-			<li><a href="#">Sobre Proven</a></li>
+			<li><a href="#">Sobre Porven</a></li>
 		</ul>	
 	</nav>
 	<a class="site-logo" href="#">
@@ -88,6 +88,7 @@
 		        },
 		        onSliderLoad: function () {
 		            $('.bxslider > li').eq(1).addClass('active-slide');
+
 		        },
 		    
 		    });
