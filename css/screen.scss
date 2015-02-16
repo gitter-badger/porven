@@ -26,11 +26,11 @@ $computer: 1200px 12;
 
 @font-face {
   font-family: 'porven';
-  src: url('fonts/fontello/porven.eot?16694464');
-  src: url('fonts/fontello/porven.eot?16694464#iefix') format('embedded-opentype'),
-       url('fonts/fontello/porven.woff?16694464') format('woff'),
-       url('fonts/fontello/porven.ttf?16694464') format('truetype'),
-       url('fonts/fontello/porven.svg?16694464#porven') format('svg');
+  src: url('fonts/fontello/porven.eot?53892222');
+  src: url('fonts/fontello/porven.eot?53892222#iefix') format('embedded-opentype'),
+       url('fonts/fontello/porven.woff?53892222') format('woff'),
+       url('fonts/fontello/porven.ttf?53892222') format('truetype'),
+       url('fonts/fontello/porven.svg?53892222#porven') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -72,6 +72,7 @@ $computer: 1200px 12;
 .icon-pinterest-circled:before { content: '\e824'; } /* '' */
 .icon-instagramm:before { content: '\e825'; } /* '' */
 .icon-picture:before { content: '\e807'; } /* '' */
+.icon-chart-line:before { content: '\e808'; } /* '' */
 
 // Colores
 
@@ -92,10 +93,10 @@ $box-bg: #fafafa;
 
 // Fuentes
 
-$fira: 'Roboto', Helvetica, Arial, sans-serif;
-$lora: 'Roboto', Helvetica, Arial, sans-serif;
-$league: 'Roboto', Helvetica, Arial, sans-serif;
+$roboto: 'Roboto', Helvetica, Arial, sans-serif;
+
 $font-text: 'Asap', sans-serif;
+
 $roboto-condensed: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 
 html, body{ overflow-x:hidden !important; }
@@ -239,6 +240,8 @@ img.alignnone {
 .hr-icon {
 	@include pie-clearfix;
 	opacity: 0.25;
+	width: 200px;
+	margin: 0 auto;
 	span {
 		float: left;
 		display: block;
@@ -253,7 +256,6 @@ img.alignnone {
 		margin: 0 5px 0 9px;
 		position: relative;
 		bottom: 12px;
-
 	}
 }
 
@@ -630,7 +632,7 @@ header#site-header {
 	h1 {
 		font-size: 28px;
 		color: $color-text;
-		font-family: $fira;
+		font-family: $roboto;
 		font-weight: 700;
 		padding: 0 $gutter-width 0 $gutter-width;
 		letter-spacing: -0.025em;
@@ -997,6 +999,9 @@ header#site-header {
 		width: 100%;	
 		height: 200px;
 		margin-bottom: 10px;
+		@include at-breakpoint($mobile-h) {
+			height: 300px;
+		}
 		@include at-breakpoint($tablet-v) {
 			height: 440px;
 		}
@@ -1100,27 +1105,47 @@ header#site-header {
 				line-height: 150%;
 			}
 		}
-
 		>p:first-child:first-letter {
 			display: block;
 			float: left;
-			font-family: $fira;
+			font-family: $roboto;
 			font-size: 60px;
 			margin-top: 17px;
 			margin-right: 9px;
 			color: #1f1f1f;
 			font-weight: bold;
 		}
-
-		blockquote {
+		h3,h4,h5,h6 {
 			margin-bottom: 20px;
-			font-size: 36px;
-			line-height: 115%;
-			font-style: italic;
-			color: $color-1;
+			line-height: 125%;
+			font-weight: bold;
+			font-family: $roboto;
 			letter-spacing: -0.025em;
 		}
-
+		h3 {
+			font-size: 24px;
+		}
+		h4 {
+			font-size: 22px;
+		}
+		h5 {
+			font-size: 20px;
+		}
+		h6 {
+			font-size: 18px;
+		}
+		>img {
+			max-width: 100%;
+			height: auto;
+			margin: 10px 0;
+		}
+		blockquote {
+			margin-bottom: 20px;
+			font-size: 24px;
+			line-height: 125%;
+			font-style: italic;
+			letter-spacing: -0.025em;
+		}
 		ul, ol {
 			margin-bottom: 30px;
 			padding-left: 21px;
@@ -1130,11 +1155,9 @@ header#site-header {
 				line-height: 130%;
 			}
 		}
-
 		ul li {
 			list-style-type: square;
 		}
-
 		ol li {
 			list-style-type: decimal;
 		}
@@ -1142,14 +1165,104 @@ header#site-header {
 		a {
 			color: $color-1;
 		}
-
 		a:hover {
 			text-decoration: underline;
 		}
-
 		em {
 			font-style: italic;
-		}
+		}    
+		.alignnone {
+       		margin: 5px 20px 20px 0;
+	    }
+	    .aligncenter,
+	    div.aligncenter {
+	        display: block;
+	        margin: 5px auto 5px auto;
+	    }
+	    .alignright {
+	        float:right;
+	        margin: 5px 0 20px 20px;
+	    }
+	    .alignleft {
+	        float: left;
+	        margin: 5px 20px 20px 0;
+	    }
+	    a img.alignright {
+	        float: right;
+	        margin: 5px 0 20px 20px;
+	    }
+	    a img.alignnone {
+	        margin: 5px 20px 20px 0;
+	    }
+	    a img.alignleft {
+	        float: left;
+	        margin: 5px 20px 20px 0;
+	    }
+	    a img.aligncenter {
+	        display: block;
+	        margin-left: auto;
+	        margin-right: auto;
+	    }
+	    .wp-caption {
+	        background: #fff;
+	        border: 1px solid #f0f0f0;
+	        max-width: 96%; /* Image does not overflow the content area */
+	        padding: 5px 3px 10px;
+	        text-align: center;
+	    }
+	    .wp-caption.alignnone {
+	        margin: 5px 20px 20px 0;
+	    }
+
+	    .wp-caption.alignleft {
+	        margin: 5px 20px 20px 0;
+	    }
+	    .wp-caption.alignright {
+	        margin: 5px 0 20px 20px;
+	    }
+	    .wp-caption img {
+	        border: 0 none;
+	        height: auto;
+	        margin: 0;
+	        max-width: 98.5%;
+	        padding: 0;
+	        width: auto;
+	    }
+	    .wp-caption p.wp-caption-text {
+	        font-size: 11px;
+	        line-height: 17px;
+	        margin: 0;
+	        padding: 0 4px 5px;
+	    }
+	    /* Text meant only for screen readers. */
+	    .screen-reader-text {
+	        clip: rect(1px, 1px, 1px, 1px);
+	        position: absolute !important;
+	        height: 1px;
+	        width: 1px;
+	        overflow: hidden;
+	    }
+	    .screen-reader-text:hover,
+	    .screen-reader-text:active,
+	    .screen-reader-text:focus {
+	        background-color: #f1f1f1;
+	        border-radius: 3px;
+	        box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	        clip: auto !important;
+	        color: #21759b;
+	        display: block;
+	        font-size: 14px;
+	        font-size: 0.875rem;
+	        font-weight: bold;
+	        height: auto;
+	        left: 5px;
+	        line-height: normal;
+	        padding: 15px 23px 14px;
+	        text-decoration: none;
+	        top: 5px;
+	        width: auto;
+	        z-index: 100000; /* Above WP toolbar. */
+	    }
 	}
 
 // Custom Posts
@@ -1198,7 +1311,7 @@ header#site-header {
 			@include transition(all .6s ease);
 		}
 		h3 {
-			font-family: $fira;
+			font-family: $roboto;
 			font-weight: 500;
 			font-size: 16px;
 			color: #fff;
@@ -1314,7 +1427,7 @@ header#site-header {
 	}
 	h3 {
 		font-size: 18px;
-		font-family: $fira;
+		font-family: $roboto;
 		color: $color-text;
 		font-weight: 500;
 		line-height: 110%;
@@ -1379,7 +1492,7 @@ header#site-header {
 					} 
 			}
 			strong {
-				font-family: $fira;
+				font-family: $roboto;
 				font-weight: bold;
 				font-style: italic;
 				float: left;
@@ -1415,8 +1528,8 @@ header#site-header {
 			}
 			.comments-share {
 				float: left;
-				width: 17%;
-			    @include at-breakpoint($computer) {
+				width: 70px;
+			    @include at-breakpoint($mobile-h) {
 					width: 10%;
 			    }
 				i {
@@ -1424,7 +1537,7 @@ header#site-header {
 					color: #d9d9d9;
 				}
 				> span {
-					font-family: $fira;
+					font-family: $roboto;
 					font-style: italic;
 					font-weight: bold;
 					font-size: 16px;
@@ -1721,7 +1834,7 @@ header#site-header {
 	}
 
 	h4 {
-		font-family: $lora;
+		font-family: $roboto;
 		font-weight: bold;
 		font-size: 16px;
 		font-style: italic;
@@ -1828,7 +1941,7 @@ header#site-header {
 #the-content .post-content .card_quote {
 
 	span {
-		font-family: $lora;
+		font-family: $roboto;
 		font-weight: bold;
 		font-style: italic;	
 		font-size: 16px;
@@ -1872,7 +1985,7 @@ header#site-header {
 			margin-right: 30px;
 			margin: 0 30px 0 16px;
 			line-height: 120%;
-			font-family: $fira;
+			font-family: $roboto;
 			font-style: italic;
 			font-weight: 700;
 			font-size: 18px;
@@ -2123,7 +2236,7 @@ aside#sidebar {
 				span {
 					color: #fff;
 					font-style: italic;
-					font-family: $fira;
+					font-family: $roboto;
 					font-weight: 700;
 					display: block;
 					margin: 0 20px;
@@ -2143,7 +2256,7 @@ aside#sidebar {
 						small {
 							font-size: 12px;
 							color: $color-text-alt;
-							font-family: $fira;
+							font-family: $roboto;
 							margin-right: 10px;
 							float: left;
 							display: block;
@@ -2214,7 +2327,7 @@ aside#sidebar {
 	height: auto;
 	opacity: 0.5;
 	@include filter(grayscale(100%)); 
-	  	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
   	filter: gray;
 	position: absolute;
 	top: 0;
@@ -2222,9 +2335,9 @@ aside#sidebar {
 }
 
 	 #site-header.header-longform {
+		padding: 0px !important;
 		background-color: $color-text;
 		height: 400px;
-		padding: 20px 0 0 0!important;
 		position: relative;
 		overflow: hidden;
 		border: none;
@@ -2280,6 +2393,7 @@ aside#sidebar {
 			}
 		}
 		.site-logo {
+			margin-top: 20px;
 			background: inherit;
 			margin-left: $gutter-width;
 			@include at-breakpoint($tablet-h) {
@@ -2313,7 +2427,7 @@ aside#sidebar {
 			.title {
 				margin-bottom: 45px;
 				h1 {
-					font-family: $fira;
+					font-family: $roboto;
 					font-size: 30px;
 					letter-spacing: -0.035em;
 					margin-bottom: 5px;
@@ -2344,18 +2458,24 @@ aside#sidebar {
 				}
 			}
 			.author {
-				margin: 0 auto;
-				width: 200px;
 				font-size: 11px;
 				font-family: $roboto-condensed;
 				letter-spacing: 0.15em;
 				text-transform: uppercase;
-				em {
-					font-style: italic;
-					text-transform: lowercase;
-				}
-				p {
-					margin-top: 20px;
+				.author-name {
+					margin: 0 auto;
+					.avatar {
+						float: none;
+					}
+					em {
+						font-style: italic;
+						text-transform: lowercase;
+					}
+					p {
+						position: relative;
+						bottom: 22px;
+						display: inline-block;
+					}
 				}
 			}
 		}
@@ -2449,7 +2569,7 @@ aside#sidebar {
 		margin-left: auto;
 		margin-right: auto;
 		width: 100%;
-		font-family: $fira;
+		font-family: $roboto;
 		margin-bottom: 20px;
 		margin-top: 20px;
 		font-weight: bold;
@@ -2465,7 +2585,7 @@ aside#sidebar {
 		}				
 	}
 	blockquote {
-		font-family: $fira;
+		font-family: $roboto;
 		color: $color-text;
 		margin: 20px 0;
 		line-height: 115%;
@@ -2558,7 +2678,7 @@ aside#sidebar {
 
 				h3 {
 					color: #fff;
-					font-family: $lora;
+					font-family: $roboto;
 					font-size: 30px;
 					width: 100%;
 					margin-top: 0;

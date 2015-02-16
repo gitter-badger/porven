@@ -1,4 +1,4 @@
-<div id="header-post">
+ <div id="header-post">
 			<div class="title">
 				<h1><?php the_title() ?></h1>
 				<strong><?php echo get_field('bajada') ?></strong>
@@ -10,11 +10,9 @@
 		    		<i class="icon-porven">&nbsp;</i>
 		    		<span>&nbsp;</span>
 		    	</div>
-		    	<div class="clear">
+		    	<div class="author-name">
 					<?php $author_id = get_the_author_meta('ID'); echo get_avatar( get_the_author_meta('user_email', $author_id), 50 ); ?>
-					<div class="left">
-						<p><em>por</em> <?php the_author(); ?></p>
-					</div>
+					<p><em>por</em> <?php the_author(); ?></p>
 				</div>
 		    </div>
 		</div>
